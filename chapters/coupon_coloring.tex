@@ -46,7 +46,7 @@ coupon coloring number) of a graph is rather hard.
   For proving NP-completeness, we will show that NAE-3SAT is reducible to this problem
   in polynomial time. Let $C$ be the set of clauses and $X$ be the set of variables
   in an instance of NAE-3SAT. We can assume that every variable $x$ appears in at least
-  one clause. Otherwise we add a new clause containing $x$ and $/bar{x}$ to
+  one clause. Otherwise we add a new clause containing $x$ and $\bar{x}$ to
   the formula. Now we construct the corresponding graph $G$. For each variable $x$,
   introduce $3$ vertices $x_1, x_2, x_3$, and $2$ edges $x_1x_2, x_2x_3$. For each
   clause $c$, introduce a vertex $c$. If $x$ is a literal in $c$, then add the edge
@@ -64,11 +64,6 @@ coupon coloring number) of a graph is rather hard.
   the vertices corresponding to clauses into $T$. For each variable $x$ put $x_2$
   into $F$. Furthermore, if true was assigned to $x$, then put $x_1$ into $T$, $x_3$
   into $F$, and conversely otherwise.
-
-
-  (https://pdfs.semanticscholar.org/d44c/a18638eadeeb17b69f657cfa06c313646b8c.pdf
-  or for bipartite:
-  https://people.cs.clemson.edu/~goddard/papers/twoTotalDominationAugment.pdf)
 \end{proof}
 
 Let us note that the constructed graph in the proof is always a bipartite
@@ -104,6 +99,8 @@ conjecture of Goddard and Henning is the following.
   If $G$ is a simple triangulated planar graph of order at least $4$, then the
   total domatic number of $G$ is at least $2$.
 \end{conj}
+
+stacked graphs...
 
 \begin{remark}
   The simplicity of the graph is necessary. Suppose the graph below has a
