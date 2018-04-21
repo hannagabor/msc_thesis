@@ -9,7 +9,7 @@ Let $G = (V, E)$ be a graph without isolated vertices.
   dominating sets.
 \end{definition}
 
-Sometimes it's more convenient to look at total dominating sets as color classes.
+Sometimes it is more convenient to look at total dominating sets as color classes.
 
 \begin{definition}
   A coloring of the vertices is called a $k$-coupon coloring if every vertex
@@ -34,7 +34,7 @@ coupon coloring number) of a graph is rather hard.
 \end{proof}
 
 \begin{thm}
-  It's NP-complete to decide whether the total domatic number of
+  It is NP-complete to decide whether the total domatic number of
   a graph is at least $2$.
 \end{thm}
 
@@ -57,7 +57,7 @@ coupon coloring number) of a graph is rather hard.
   false otherwise. For any variable $x$, $x_1$ and $x_3$ are the only neighbors
   of $x_2$, so $x_1$ and $x_3$ must be in different sets of the partition. If $c$
   is a vertex corresponding to a clause, then it must have neighbors both in $T$
-  and $F$, and so the literals in $c$ can't be all true nor false.
+  and $F$, and so the literals in $c$ cannot be all true nor false.
 
   Suppose now that the variables have a truth assignment such that each clause
   contains both true and false literals. Define $T$ and $F$ as follows. Put all
@@ -70,7 +70,7 @@ Let us note that the constructed graph in the proof is always a bipartite
 graph.
 
 \begin{cor}
-  It's NP-complete to decide whether the total domatic number of
+  It is NP-complete to decide whether the total domatic number of
   a bipartite graph is at least $2$.
 \end{cor}
 
@@ -100,33 +100,67 @@ conjecture of Goddard and Henning is the following.
   total domatic number of $G$ is at least $2$.
 \end{conj}
 
-stacked graphs...
-
 \begin{remark}
-  The simplicity of the graph is necessary. Suppose the graph below has a
-  $2$-coupon coloring. Then $A$ and $C$ must have different colors, because
-  they are the only neighbors of $B$. Similarly, $C$ and $E$ must have different
-  colors, as well as $E$ and $A$. That's a contradiction, since $A$, $C$ and
-  $E$ form a triangular.
+  The simplicity of the graph is necessary. Suppose the graph on figure
+  \ref{fig:parallel} has a $2$-coupon coloring. Then $A$ and $C$ must have
+  different colors, because they are the only neighbors of $B$. Similarly, $C$
+  and $E$ must have different colors, as well as $E$ and $A$. That is a
+  contradiction, since $A$, $C$ and $E$ form a triangular.
 \end{remark}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=70mm]{parallel}
+  \caption{Simplicity is necessary}
+  \label{fig:parallel}
 \end{figure}
 
 \begin{remark}
   Allowing triangulated disks (i.e. planar graphs with at most one face greater
-  than $3$), the conjecture doesn't hold. For example, the graph below doesn't
-  have a $2$-coupon coloring from similar reasons as the previous one. We will
-  show later that this graph is a member of a bigger graph family without $2$
-  disjoint dominating sets.
+  than $3$), the conjecture does not hold. For example, the graph on figure
+  \ref{fig:sungraph} does not have a $2$-coupon coloring from similar reasons as
+  the previous one. We will show later that this graph is a member of a bigger
+  graph family without $2$ disjoint dominating sets.
 \end{remark}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=70mm]{sungraph}
+  \caption{The conjecture does not hold for triangulated disks}
+  \label{fig:sungraph}
 \end{figure}
+
+There are some sufficient conditions known for having a total domatic number of
+at least $2$. We take a look at these results now.
+
+The first example is a graph family for which an easy induction shows that they
+are $2$-coupon colorable.
+
+\begin{definition}
+  A graph is called a stacked graph if it can be constructed from a triangle by
+  repeatedly putting a new vertex in a face and connecting it with the vertices on
+  the boundary of that face.
+\end{definition}
+\begin{remark}
+  Stacked graphs are triangulated.
+\end{remark}
+\begin{claim}
+  Stacked graphs with at least $4$ vertices are $2$-coupon colorable.
+\end{claim}
+\begin{proof}
+  We can determine the colors of the vertices as the graph is constructed. The
+  current coloring will maintain two following two properties.
+  \begin{enumerate}
+    \item It is a $2$-coupon coloring of the current graph.
+    \item Every face has vertices from both color classes.
+  \end{enumerate}
+  The construction of the graph starts with a simple triangle. Color two vertices
+  of the triangle to blue, and the remaining vertex to red. Color the vertex added
+  to the graph in the first step to red. This coloring has the desired properties.
+  When a vertex is inserted into a face, color the new vertex to red, if there is
+  only one red vertex on the face's boundary, and blue otherwise. This trivially
+  maintains the desired properties.
+\end{proof}
 
 \begin{thm}
   Let $G$ be a triangulated planar graph. If all the vertices of $G$ have an
