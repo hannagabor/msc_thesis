@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/TeX Live for SUSE Linux) (preloaded format=pdflatex 2018.4.15)  21 APR 2018 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/TeX Live for SUSE Linux) (preloaded format=pdflatex 2018.4.15)  21 APR 2018 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -418,34 +418,35 @@ Package: amsthm 2015/03/04 v2.20.2
 \c@conj=\count95
 \c@remark=\count96
 \c@claim=\count97
+\c@lemma=\count98
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/share/texmf/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count98
+\scratchcounter=\count99
 \scratchdimen=\dimen113
 \scratchbox=\box26
-\nofMPsegments=\count99
-\nofMParguments=\count100
+\nofMPsegments=\count100
+\nofMParguments=\count101
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count101
+\MPscratchCnt=\count102
 \MPscratchDim=\dimen114
-\MPnumerator=\count102
-\makeMPintoPDFobject=\count103
+\MPnumerator=\count103
+\makeMPintoPDFobject=\count104
 \everyMPtoPDFconversion=\toks25
 ) (/usr/share/texmf/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
@@ -560,25 +561,25 @@ Chapter 1.
 <images/parallel.png, id=31, 385.44pt x 338.26375pt>
 File: images/parallel.png Graphic file (type png)
  <use images/parallel.png>
-Package pdftex.def Info: images/parallel.png used on input line 113.
+Package pdftex.def Info: images/parallel.png used on input line 117.
 (pdftex.def)             Requested size: 199.16928pt x 174.78844pt.
 
 <images/sungraph.png, id=33, 416.55624pt x 354.32375pt>
 File: images/sungraph.png Graphic file (type png)
 
 <use images/sungraph.png>
-Package pdftex.def Info: images/sungraph.png used on input line 128.
+Package pdftex.def Info: images/sungraph.png used on input line 132.
 (pdftex.def)             Requested size: 199.16928pt x 169.41386pt.
- [6 <./images/parallel.png>]) [7 <./images/sungraph.png>]
+ [6 <./images/parallel.png>] [7 <./images/sungraph.png>]) [8]
 Chapter 2.
-(./chapters/restricted_2-factors.tex) [8
+(./chapters/restricted_2-factors.tex) [9
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 2468 strings out of 494035
- 32199 string characters out of 6158521
- 100896 words of memory out of 5000000
- 5816 multiletter control sequences out of 15000+600000
+ 2474 strings out of 494035
+ 32242 string characters out of 6158521
+ 100947 words of memory out of 5000000
+ 5822 multiletter control sequences out of 15000+600000
  9441 words of font info for 33 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
  39i,5n,25p,237b,231s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -589,10 +590,10 @@ fonts/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb><
 /usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fon
 ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (9 pages, 280586 bytes).
+Output written on main.pdf (10 pages, 287296 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 79 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

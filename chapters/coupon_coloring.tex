@@ -1,6 +1,6 @@
-\section{...}
+In this chapter we will examine the so-called total domatic number of graphs,
+especially in the case of triangulated planar graphs.
 
-We will examine the so-called total domatic number of graphs.
 Let $G = (V, E)$ be a graph without isolated vertices.
 
 \begin{definition}
@@ -18,8 +18,12 @@ Sometimes it is more convenient to look at total dominating sets as color classe
   number is denoted by $\chi_c(G)$.
 \end{definition}
 
+\section{Complexity for arbitrary graphs}
+
 It turns out that determining the total domatic number (or equivalently the
-coupon coloring number) of a graph is rather hard.
+coupon coloring number) of a graph is rather hard. Even determining if the total
+domatic number of a graph is at least $2$. We will show that NAE-3SAT is
+reducible to this question.
 
 \begin{definition}
   NAE-3SAT ...
@@ -74,8 +78,8 @@ graph.
   a bipartite graph is at least $2$.
 \end{cor}
 
-
-\section{Degree restrictions}
+\section{Degree restrictions for arbitrary graphs}
+(remove???)
 
 A natural question is whether graphs with an appropriately big minimum degree
 always have a total domatic number of at least $2$.
@@ -90,7 +94,7 @@ always have a total domatic number of at least $2$.
 
 ...Other degree stuff (k-regular, maxdeg-mindeg small enough)...
 
-\section{A conjecture of Goddard and Henning}
+\section{Observations for planar graphs}
 
 From now on we will focus on $2$-coupon colorings and planar graphs. A
 conjecture of Goddard and Henning is the following.
@@ -131,8 +135,7 @@ conjecture of Goddard and Henning is the following.
 \end{figure}
 
 There are some sufficient conditions known for having a total domatic number of
-at least $2$. We take a look at these results now.
-
+at least $2$. We will cover some of them along the way.
 The first example is a graph family for which an easy induction shows that they
 are $2$-coupon colorable.
 
@@ -162,21 +165,72 @@ are $2$-coupon colorable.
   maintains the desired properties.
 \end{proof}
 
+\section{Outerplanar and triangulated Hamiltonian graphs}
+Zoltán Lóránt Nagy showed that the conjecture of Goddard and Henning holds for
+Hamiltonian graphs. For this, he characterized the $2$-coupon colorable
+maximal outerplanar graphs.
+
+\begin{definition}
+   A graph is outerplanar if it has a planar drawing for which all vertices
+   belong to the outer face. A maximal outerplanar graph is an outerplanar graph
+   such that adding any edge results in a not outerplanar graphs.
+\end{definition}
+
+In order to provide this characterization we need to introduce a few notions first.
+\begin{definition}
+  Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The $M(G)$ sun graph
+  of $G$ is obtained by gluing a triangle to each edge of the outer face.
+\end{definition}
+\begin{remark}
+  $M(G)$ is a maximal outerplanar graph with $2n$ vertices, from which $n$ has
+  degree $2$. The graph on figure $\ref{fig:sungraph}$ is the sun graph of
+  the $BDE$ triangle.
+\end{remark}
+\begin{definition}
+  A vertex $v$ of a maximal outerplanar graph is called a central vertex if the
+  following $3$ conditions hold.
+  \begin{enumerate}
+    \item $deg(v) \ge 3$
+    \item Every neighbor of $v$ has degree at least $3$
+    \item For every $u, w$ neighbors of $v$ the length of the $uw$ path on the
+    outer face not containing $v$ is divisible by $4$.
+  \end{enumerate}
+\end{definition}
+\begin{definition}
+  A generalized sun graph is a maximal planar graph of order
+  $n \equiv 2\ (\textrm{mod}\ 4)$ such that the number of
+  degree $2$ vertices plus the number of central vertices is half of the graph's
+  order.
+\end{definition}
+
+\begin{lemma}
+  The outer face of a maximal outerplanar graph has a chord
+\end{lemma}
+
 \begin{thm}
-  Let $G$ be a triangulated planar graph. If all the vertices of $G$ have an
-  odd degree, then there exists a coupon coloring with $2$ colors.
+  Let $G$ be a maximal outerplanar graph. $G$ admits $2$ disjoint total dominating
+  sets if and only if $G$ is not a generalized sun graph.
 \end{thm}
 \begin{proof}
-  ...
+  Let $G$ be a generalized sun graph. ...
 \end{proof}
 
-\begin{thm}
-  Outerplanar graphs ...
-\end{thm}
 
 \begin{thm}
-  Every triangulated graph with a Hamiltonian circle admits 2 disjoint
+  Every triangulated graph with a Hamiltonian circle admits $2$ disjoint
   dominating sets.
 \end{thm}
+\begin{proof}
+  Let $G$ be a triangulated Hamiltonian graph and let $n$ denote the number of
+  vertices in $G$.
 
-Hypergraph connection...
+  If $n \equiv 0\ (\textrm{mod}\ 4)$, then it is easy to find a $2$-coupon coloring:
+  color the vertices along the boundary of the outer face by repeating the pattern
+  $BBWW$.
+
+  If $n \equiv 1\ (\textrm{mod}\ 4)$, then the same coloring method almost works.
+  There is only $1$ vertex that has $2$ black neighbors on the outer face.
+\end{proof}
+
+
+(Hypergraph connection ???)
