@@ -222,10 +222,15 @@ notions first.
   central or has degree $2$.
 \end{remark}
 
+The key characterization theorem is the following.
+
 \begin{thm}\label{thm:outerplanar}
   Let $G$ be a maximal outerplanar graph. $G$ admits $2$ disjoint total dominating
   sets if and only if $G$ is not a generalized sun graph.
 \end{thm}
+
+For proving this theorem we need some observations about generalized sun graphs.
+
 \begin{proof}[Proof of Theorem \ref{thm:outerplanar}]
   First we show that generalized sun graphs do not have $2$ disjoint total
   dominating sets. The proof goes by induction on the $n = 4k + 2$ number of vertices.
@@ -233,10 +238,32 @@ notions first.
   disjoint total dominating sets. (Shown on figure \ref{fig:sungraph}.)
   Suppose $k \ge 2$ and $G$ is a generalized sun graph of order $4k + 2$. Index
   the vertices along the outer face from $v_1$ to $v_{4k + 2}$, such that every
-  vertex with an odd index is central or has degree $2$. Take a $2$-coloring of
-  the graph. We show it cannot be a $2$-coupon coloring. The cardinality of the
+  vertex with an odd index is central or has degree $2$. Let $c$ be a $2$-coloring of
+  the graph. We show that $c$ cannot be a $2$-coupon coloring. The cardinality of the
   vertices implies that there must be two consecutive vertices $v_{2i}$ and $v_{2i + 2}$
+  with the same color (say white). If $v_{2i}$ has only white neighbors, then this
+  coloring is not a $2$-coupon coloring. So suppose $v_{2i}$ has a black neighbor
+  $v_j$. In this case, $v_{2i}$ is a central vertex. The $v_{2i}v_j$ edge cuts the graph
+  into two parts ($v_{2i}v_j$ is an edge in both graphs). Both of
+  these graphs are generalized sun graphs, as $v_{2i}$ either remains a central
+  vertex or become a vertex of degree $2$ in these smaller graphs, whereas other
+  central vertices remain central vertices. By induction, the restriction of
+  $c$ is not a $2$-coupon coloring in either of the smaller graphs. If there is
+  a vertex $v_l$ with a monochromatic neighborhood in one of the smaller graphs
+  and $l \neq 2i, l \neq j$, then $v_l$ has the same neighborhood in $G$, hence
+  all its neighbors are from the same color class. $v_{2i}$ cannot violate the
+  condition, as it was chosen in a way that it has both a black and a white neighbor
+  in both graphs. Thus the only remaining case is when $v_j$ has a monochromatic
+  neighborhood in both graphs. But in this case, all of its neighbors are from
+  the same color class as $v_{2i}$, so it has a monochromatic neighborhood also
+  in $G$.
 \end{proof}
+
+\begin{remark}
+  With a slight modification of the proof it can be shown that the vertices of a
+  generalized sun graph cannot be colored in a way that every degree $2$ or central
+  vertex has neighbors from both color classes.
+\end{remark}
 
 \begin{lemma}
   The outer face of a maximal outerplanar graph has a chord ...
