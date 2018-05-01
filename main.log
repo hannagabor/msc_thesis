@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/TeX Live for SUSE Linux) (preloaded format=pdflatex 2018.4.15)  21 APR 2018 21:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/TeX Live for SUSE Linux) (preloaded format=pdflatex 2018.4.15)  1 MAY 2018 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -570,16 +570,16 @@ File: images/sungraph.png Graphic file (type png)
 <use images/sungraph.png>
 Package pdftex.def Info: images/sungraph.png used on input line 132.
 (pdftex.def)             Requested size: 199.16928pt x 169.41386pt.
- [6 <./images/parallel.png>] [7 <./images/sungraph.png>]) [8]
+ [6 <./images/parallel.png>] [7 <./images/sungraph.png>] [8]) [9]
 Chapter 2.
-(./chapters/restricted_2-factors.tex) [9
+(./chapters/restricted_2-factors.tex) [10
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 2474 strings out of 494035
- 32242 string characters out of 6158521
- 100947 words of memory out of 5000000
- 5822 multiletter control sequences out of 15000+600000
+ 2475 strings out of 494035
+ 32259 string characters out of 6158521
+ 101959 words of memory out of 5000000
+ 5823 multiletter control sequences out of 15000+600000
  9441 words of font info for 33 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
  39i,5n,25p,237b,231s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -590,10 +590,10 @@ fonts/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb><
 /usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fon
 ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (10 pages, 287296 bytes).
+Output written on main.pdf (11 pages, 289787 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

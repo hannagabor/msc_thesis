@@ -175,8 +175,12 @@ maximal outerplanar graphs.
    belong to the outer face. A maximal outerplanar graph is an outerplanar graph
    such that adding any edge results in a not outerplanar graphs.
 \end{definition}
+\begin{remark}
+  Te outer face of a maximal outerplanar graph is a Hamiltonian cycle.
+\end{remark}
 
-In order to provide this characterization we need to introduce a few notions first.
+In order to provide the mentioned characterization we need to introduce a few
+notions first.
 \begin{definition}
   Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The $M(G)$ sun graph
   of $G$ is obtained by gluing a triangle to each edge of the outer face.
@@ -196,25 +200,47 @@ In order to provide this characterization we need to introduce a few notions fir
     outer face not containing $v$ is divisible by $4$.
   \end{enumerate}
 \end{definition}
+\begin{claim}
+  The outer face of a maximal outerplanar graph does not contain two consecutive
+  central vertices.
+\end{claim}
+\begin{proof}
+  Suppose there exists an $uv$ edge on the outer face such that $u$ and $v$ are
+  central vertices. Because of the maximality of the graph there exists a $uvw$
+  triangle. Index the vertices along the outer face form $v = v_1$ to $u = v_{n}$.
+  Suppose $w = v_i$. From the centrality of $v$ follows that $i \equiv 2\
+  (\textrm{mod}\ 4)$. On the other hand $u$ is also a central vertex, hence
+  $i \equiv 1\ (\textrm{mod}\ 4)$.
+\end{proof}
 \begin{definition}
-  A generalized sun graph is a maximal planar graph of order
+  A generalized sun graph is a maximal outerplanar graph of order
   $n \equiv 2\ (\textrm{mod}\ 4)$ such that the number of
-  degree $2$ vertices plus the number of central vertices is half of the graph's
-  order.
+  degree $2$ vertices plus the number of central vertices is $n/2$.
 \end{definition}
+\begin{remark}
+  Every second vertex of the outer face in a generalized sun graph is either
+  central or has degree $2$.
+\end{remark}
 
-\begin{lemma}
-  The outer face of a maximal outerplanar graph has a chord
-\end{lemma}
-
-\begin{thm}
+\begin{thm}\label{thm:outerplanar}
   Let $G$ be a maximal outerplanar graph. $G$ admits $2$ disjoint total dominating
   sets if and only if $G$ is not a generalized sun graph.
 \end{thm}
-\begin{proof}
-  Let $G$ be a generalized sun graph. ...
+\begin{proof}[Proof of Theorem \ref{thm:outerplanar}]
+  First we show that generalized sun graphs do not have $2$ disjoint total
+  dominating sets. The proof goes by induction on the $n = 4k + 2$ number of vertices.
+  For $k = 1$ there is only one generalized sun graph and it does not admit $2$
+  disjoint total dominating sets. (Shown on figure \ref{fig:sungraph}.)
+  Suppose $k \ge 2$ and $G$ is a generalized sun graph of order $4k + 2$. Index
+  the vertices along the outer face from $v_1$ to $v_{4k + 2}$, such that every
+  vertex with an odd index is central or has degree $2$. Take a $2$-coloring of
+  the graph. We show it cannot be a $2$-coupon coloring. The cardinality of the
+  vertices implies that there must be two consecutive vertices $v_{2i}$ and $v_{2i + 2}$
 \end{proof}
 
+\begin{lemma}
+  The outer face of a maximal outerplanar graph has a chord ...
+\end{lemma}
 
 \begin{thm}
   Every triangulated graph with a Hamiltonian circle admits $2$ disjoint

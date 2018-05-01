@@ -3,6 +3,6 @@
 \contentsline {section}{\numberline {1.2}Degree restrictions for arbitrary graphs}{5}
 \contentsline {section}{\numberline {1.3}Observations for planar graphs}{6}
 \contentsline {section}{\numberline {1.4}Outerplanar and triangulated Hamiltonian graphs}{7}
-\contentsline {chapter}{\numberline {2}Restricted 2-factors}{9}
-\contentsline {section}{\numberline {2.1}Connection}{9}
-\contentsline {section}{\numberline {2.2}Barnette's conjecture}{9}
+\contentsline {chapter}{\numberline {2}Restricted 2-factors}{10}
+\contentsline {section}{\numberline {2.1}Connection}{10}
+\contentsline {section}{\numberline {2.2}Barnette's conjecture}{10}
