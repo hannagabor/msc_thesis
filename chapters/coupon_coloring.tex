@@ -22,19 +22,39 @@ Sometimes it is more convenient to look at total dominating sets as color classe
 
 It turns out that determining the total domatic number (or equivalently the
 coupon coloring number) of a graph is rather hard. Even determining if the total
-domatic number of a graph is at least $2$. We will show that NAE-3SAT is
-reducible to this question.
+domatic number of a graph is at least $2$ is NP-complete. We prove this by showing
+that a variant of 3SAT is reducible to this question in polynomial time.
 
 \begin{definition}
-  NAE-3SAT ...
+  An instance of the not-all-equal 3-satisfiability (NAE-3SAT) problem consists of
+  a set $C$ of clauses on a finite set $X$ of Boolean variables, where each clause
+  contains three literals. The question is whether there is a truth assignment for
+  $X$ that satisfies all the clauses in $C$ such that each clause contains a false
+  literal.
 \end{definition}
 
 \begin{thm}
   NAE-3SAT is NP-complete.
 \end{thm}
-
 \begin{proof}
-  ...
+  It can be checked in polynomial time whether a given truth assignment meets the
+  requirement, so NAE-3SAT is in NP.
+
+  To prove NP completeness, we show first a reduction from 3SAT to NAE-4SAT.
+  Let $C$ be the set of clauses and $X$ be the set of variables in an instance of
+  3SAT. Let $X' = X \cup y$, and $C' = \{(x_1 \vee x_2 \vee x_3 \vee y)\ |\
+  (x_1 \vee x_2 \vee x_3) \in C\}$. We claim that the NAE-4SAT problem defined
+  by $(C', X')$ is satisfiable if and only if the 3SAT problem defined by $(C, X)$
+  is satisfiable. If the 3SAT formula is satisfied by a truth assignment then
+  the same assignment with assigning the value false to $y$ satisfies the NAE-4SAT
+  problem. Now suppose a truth assignment satisfies the NAE-4SAT problem. If $y$
+  has value false, then the same assignment of $X$ satisfies the 3SAT problem.
+  If $y$ has value true, then changing every truth value in $X$ to its opposite
+  gives a truth assignment satisfying the 3SAT formula.
+
+  Finally, the reduction from NAE-4SAT to NAE-3SAT is by adding clauses
+  $(x_1 \vee x_2 \vee z)$ and $(\bar{z} \vee x_3 \vee y)$ instead of each clause
+  $(x_1 \vee x_2 \vee x_3 \vee y) \in C'$.
 \end{proof}
 
 \begin{thm}
