@@ -1,120 +1,4 @@
-In this chapter we will examine the so-called total domatic number of graphs,
-especially in the case of triangulated planar graphs.
-
-Let $G = (V, E)$ be a graph without isolated vertices.
-
-\begin{definition}
-  $S \subseteq V$ is a total dominating set if every vertex has a neighbor in
-  $S$. The total domatic number of $G$ is the maximum number of disjoint total
-  dominating sets.
-\end{definition}
-
-Sometimes it is more convenient to look at total dominating sets as color classes.
-
-\begin{definition}
-  A coloring of the vertices is called a $k$-coupon coloring if every vertex
-  has a neighbor from each color class. The coupon coloring number of $G$ is
-  the maximum $k$ for which a $k$-coupon coloring exists. The coupon coloring
-  number is denoted by $\chi_c(G)$.
-\end{definition}
-
-\section{Complexity for arbitrary graphs}
-
-It turns out that determining the total domatic number (or equivalently the
-coupon coloring number) of a graph is rather hard. Even determining if the total
-domatic number of a graph is at least $2$ is NP-complete. We prove this by showing
-that a variant of 3SAT is reducible to this question in polynomial time.
-
-\begin{definition}
-  An instance of the not-all-equal 3-satisfiability (NAE-3SAT) problem consists of
-  a set $C$ of clauses on a finite set $X$ of Boolean variables, where each clause
-  contains three literals. The question is whether there is a truth assignment for
-  $X$ that satisfies all the clauses in $C$ such that each clause contains a false
-  literal.
-\end{definition}
-
-\begin{thm}
-  NAE-3SAT is NP-complete.
-\end{thm}
-\begin{proof}
-  It can be checked in polynomial time whether a given truth assignment meets the
-  requirement, so NAE-3SAT is in NP.
-
-  To prove NP completeness, we show first a reduction from 3SAT to NAE-4SAT.
-  Let $C$ be the set of clauses and $X$ be the set of variables in an instance of
-  3SAT. Let $X' = X \cup y$, and $C' = \{(x_1 \vee x_2 \vee x_3 \vee y)\ |\
-  (x_1 \vee x_2 \vee x_3) \in C\}$. We claim that the NAE-4SAT problem defined
-  by $(C', X')$ is satisfiable if and only if the 3SAT problem defined by $(C, X)$
-  is satisfiable. If the 3SAT formula is satisfied by a truth assignment then
-  the same assignment with assigning the value false to $y$ satisfies the NAE-4SAT
-  problem. Now suppose a truth assignment satisfies the NAE-4SAT problem. If $y$
-  has value false, then the same assignment of $X$ satisfies the 3SAT problem.
-  If $y$ has value true, then changing every truth value in $X$ to its opposite
-  gives a truth assignment satisfying the 3SAT formula.
-
-  Finally, the reduction from NAE-4SAT to NAE-3SAT is by adding clauses
-  $(x_1 \vee x_2 \vee z)$ and $(\bar{z} \vee x_3 \vee y)$ instead of each clause
-  $(x_1 \vee x_2 \vee x_3 \vee y) \in C'$.
-\end{proof}
-
-\begin{thm}
-  It is NP-complete to decide whether the total domatic number of
-  a graph is at least $2$.
-\end{thm}
-
-\begin{proof}
-  Given a partition of the vertices into $2$ sets, it can be checked in polynomial
-  time whether these sets are total dominating sets. So the problem is a member
-  of NP.
-
-  For proving NP-completeness, we will show that NAE-3SAT is reducible to this problem
-  in polynomial time. Let $C$ be the set of clauses and $X$ be the set of variables
-  in an instance of NAE-3SAT. We can assume that every variable $x$ appears in at least
-  one clause. Otherwise we add a new clause containing $x$ and $\bar{x}$ to
-  the formula. Now we construct the corresponding graph $G$. For each variable $x$,
-  introduce $3$ vertices $x_1, x_2, x_3$, and $2$ edges $x_1x_2, x_2x_3$. For each
-  clause $c$, introduce a vertex $c$. If $x$ is a literal in $c$, then add the edge
-  $cx_1$ to the graph. If $\bar{x}$ is a literal in $c$, then add the edge $cx_3$.
-
-  Suppose $G$ has a partition into $2$ disjoint total dominating sets: $T$ and $F$.
-  Assign the value true for each variable $x$ with $x_1 \in T$ and assign the value
-  false otherwise. For any variable $x$, $x_1$ and $x_3$ are the only neighbors
-  of $x_2$, so $x_1$ and $x_3$ must be in different sets of the partition. If $c$
-  is a vertex corresponding to a clause, then it must have neighbors both in $T$
-  and $F$, and so the literals in $c$ cannot be all true nor false.
-
-  Suppose now that the variables have a truth assignment such that each clause
-  contains both true and false literals. Define $T$ and $F$ as follows. Put all
-  the vertices corresponding to clauses into $T$. For each variable $x$ put $x_2$
-  into $F$. Furthermore, if true was assigned to $x$, then put $x_1$ into $T$, $x_3$
-  into $F$, and conversely otherwise.
-\end{proof}
-
-Let us note that the constructed graph in the proof is always a bipartite
-graph.
-
-\begin{cor}
-  It is NP-complete to decide whether the total domatic number of
-  a bipartite graph is at least $2$.
-\end{cor}
-
-\section{Degree restrictions for arbitrary graphs}
-(remove???)
-
-A natural question is whether graphs with an appropriately big minimum degree
-always have a total domatic number of at least $2$.
-
-\begin{thm}
-  For every $d$ there exists a graph with minimum degree $d$ and without $2$
-  disjoint total dominating sets.
-\end{thm}
-\begin{proof}
-  ...
-\end{proof}
-
-...Other degree stuff (k-regular, maxdeg-mindeg small enough)...
-
-\section{Observations for planar graphs}
+\section{Introducing the Goddard-Henning conjecture}
 
 From now on we will focus on $2$-coupon colorings and planar graphs. A
 conjecture of Goddard and Henning is the following.
@@ -250,12 +134,19 @@ The key characterization theorem is the following.
 \end{thm}
 
 For proving this theorem we need some observations about generalized sun graphs.
+TBD
+
+\begin{lemma}
+  The outer face of a maximal outerplanar graph has a chord TBD
+\end{lemma}
 
 \begin{proof}[Proof of Theorem \ref{thm:outerplanar}]
   First we show that generalized sun graphs do not have $2$ disjoint total
   dominating sets. The proof goes by induction on the $n = 4k + 2$ number of vertices.
+
   For $k = 1$ there is only one generalized sun graph and it does not admit $2$
   disjoint total dominating sets. (Shown on figure \ref{fig:sungraph}.)
+
   Suppose $k \ge 2$ and $G$ is a generalized sun graph of order $4k + 2$. Index
   the vertices along the outer face from $v_1$ to $v_{4k + 2}$, such that every
   vertex with an odd index is central or has degree $2$. Let $c$ be a $2$-coloring of
@@ -277,6 +168,40 @@ For proving this theorem we need some observations about generalized sun graphs.
   neighborhood in both graphs. But in this case, all of its neighbors are from
   the same color class as $v_{2i}$, so it has a monochromatic neighborhood also
   in $G$.
+
+  \vspace{0.4cm}
+
+  Now we show that if a graph $G$ of order $n$ is not a generalized sun graph
+  then it does have $2$ disjoint total dominating sets.
+
+  If $n \equiv 0\ (\textrm{mod}\ 4)$, then it is easy to find a $2$-coupon coloring:
+  color the vertices along the boundary of the outer face by repeating the pattern
+  $BBWW$.
+
+  If $n \equiv 1\ (\textrm{mod}\ 4)$, then the same coloring method works, if you
+  start the coloring from the right vertex. By lemma \ref{lem:two_chord} there
+  exists a chord $uv$ of length $2$. Alternating colors in pairs starting from $v$
+  does the job.
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=50mm]{4k+1}
+    \caption{Coloring an outerplanar graph of order $4k + 1$}
+    \label{fig:4k+1}
+  \end{figure}
+
+  If $n \equiv 3\ (\textrm{mod}\ 4)$, then start the coloring from a vertex next
+  to $v$.
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=50mm]{4k+3}
+    \caption{Coloring an outerplanar graph of order $4k + 3$}
+    \label{fig:4k+3}
+  \end{figure}
+
+  Suppose $n \equiv 2\ (\textrm{mod}\ 4)$. We show that if $G$ does not have $2$
+  disjoint total dominating sets, then it is a generalized sun graph.
+
+  TBD
 \end{proof}
 
 \begin{remark}
@@ -284,10 +209,6 @@ For proving this theorem we need some observations about generalized sun graphs.
   generalized sun graph cannot be colored in a way that every degree $2$ or central
   vertex has neighbors from both color classes.
 \end{remark}
-
-\begin{lemma}
-  The outer face of a maximal outerplanar graph has a chord ...
-\end{lemma}
 
 \begin{thm}
   Every triangulated graph with a Hamiltonian circle admits $2$ disjoint
@@ -297,13 +218,10 @@ For proving this theorem we need some observations about generalized sun graphs.
   Let $G$ be a triangulated Hamiltonian graph and let $n$ denote the number of
   vertices in $G$.
 
-  If $n \equiv 0\ (\textrm{mod}\ 4)$, then it is easy to find a $2$-coupon coloring:
-  color the vertices along the boundary of the outer face by repeating the pattern
-  $BBWW$.
-
-  If $n \equiv 1\ (\textrm{mod}\ 4)$, then the same coloring method almost works.
-  There is only $1$ vertex that has $2$ black neighbors on the outer face.
+  TBD
 \end{proof}
 
+\section{Triangulated graphs without low-degree vertices}
+TODO: Find the related article
 
-(Hypergraph connection ???)
+TBD
