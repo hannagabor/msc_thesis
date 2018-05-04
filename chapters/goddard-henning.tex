@@ -7,7 +7,8 @@ statements are not true, they can be useful for proving the conjecture in specia
 
 \begin{definition}
   Let $G$ be a triangulated planar graph. For a vertex $v$, each triangle
-  containing $v$ has an edge not containing $v$. We call the set of these edges a wheel.
+  containing $v$ has an edge not containing $v$. We call the circle consisting of
+  these edges a wheel.
 \end{definition}
 
 \begin{figure}[ht]
@@ -19,7 +20,7 @@ statements are not true, they can be useful for proving the conjecture in specia
 
 \begin{guess}\label{s:bipartite}
   Let $G = (V, E)$ be a simple triangulated graph of order at least $4$. Then there
-  exists a bipartite $G' = (V, E')$ subgraph of $G$, such that $E'$ contains at
+  exists a bipartite $H = (V, F)$ subgraph of $G$, such that $F$ contains at
   least one edge from each wheel of $G$.
 \end{guess}
 
@@ -28,7 +29,7 @@ statements are not true, they can be useful for proving the conjecture in specia
 \end{claim}
 \begin{proof}
   Let $G$ be a triangulated graph. Suppose first that it has a $2$-coupon coloring.
-  $$E' = \{uv \in E\ |\ u\ \textrm{and}\ v\ \textrm{are in different color classes}\}$$
+  $$F = \{uv \in E\ |\ u\ \textrm{and}\ v\ \textrm{are in different color classes}\}$$
   defines a bipartite subgraph of $G$ that contains at least one edge from each wheel.
 
   Now suppose that there exists bipartite subgraph that meets our requirement. Color
@@ -47,14 +48,14 @@ statements are not true, they can be useful for proving the conjecture in specia
 
 \begin{guess}\label{s:no_iso}
   Let $G = (V, E)$ be a simple triangulated graph of order at least $4$. Then there
-  exists a subgraph of $G'' = (V, E'')$ having the following two properties.
+  exists a subgraph of $H' = (V, F')$ having the following two properties.
   \begin{enumerate}
-    \item $E""$ contains exactly $1$ edge from each face of $G$.
-    \item There are no isolated vertices in $G''$.
+    \item $F'$ contains exactly $1$ edge from each face of $G$.
+    \item There are no isolated vertices in $H'$.
   \end{enumerate}
 \end{guess}
 
-\begin{lemma}
+\begin{lemma}\label{l:bipartite}
   A connected planar graph is bipartite if end only if each of its faces have an
   even number of edges.
 \end{lemma}
@@ -62,24 +63,153 @@ statements are not true, they can be useful for proving the conjecture in specia
   Suppose that the graph is not bipartite and thus there exists a circle $C$ of odd
   length. We show that then exists an odd face. The proof goes by induction on the
   number of faces in the inner side of $C$. If $C$ is a face, then we are done.
-  If $C$ is not a face, then there exists a face $F$ in the inner side of $C$ having at least one
-  common edge with $C$. $F$ does not contain every edge of $C$, since $G$ is connected.
-  Let $C'$ be the symmetric difference of the edge sets of $C$ and $F$. By the parity of $C$
-  either $F$ is an odd face or $C'$ is an odd circle containing less faces in its
+  If $C$ is not a face, then there exists a face $f$ in the inner side of $C$ having at least one
+  common edge with $C$. $f$ does not contain every edge of $C$, since $G$ is connected.
+  Let $C'$ be the symmetric difference of the edge sets of $C$ and $f$. By the parity of $C$
+  either $f$ is an odd face or $C'$ is an odd circle containing less faces in its
   inner side than $C$.
 
   The other direction is trivial.
 \end{proof}
 
 \begin{claim}
-  If Statement \ref{s:no_iso} holds, then Statement \ref{s:bipartite} (and thus
+  Statement \ref{s:no_iso} holds if and only if Statement \ref{s:bipartite} (and thus
   the Goddard-Henning conjecture) also holds.
 \end{claim}
 \begin{proof}
-  We show that $G' = (V, E - E'')$ is a subgraph required by Statement \ref{s:bipartite}.
-  $G'$ is a bipartite graph, as each of its faces have $4$ edges.
-  TBD
+  Let $H' = (V, F')$ be the subgraph required by Statement \ref{s:no_iso}.
+  We show that $H = (V, E - F')$ is a subgraph required by Statement \ref{s:bipartite}.
+  $H$ is a bipartite graph by Lemma \ref{l:bipartite}, as each of its faces have $4$ edges.
+  Take a wheel $v_1v_2\dots v_k$ defined by a vertex $v$. $v$ is not an isolated vertex in $H'$, so
+  there exists a vertex $v_i$ such that $vv_i \in F'$. As $F'$ contains exactly one edge
+  from each face, $v_iv_{i + 1} \in F$.
+
+  \vspace{0.4cm}
+
+  Now let $H = (V, F)$ be the subgraph required by Statement \ref{s:bipartite}.
+  Clearly, $F$ cannot contain all three edges of a face.
+  We show that there exists an edge set $F_0$, such that $(V, F \cup F_0)$ is a bipartite
+  subgraph of $G$ that contains exactly two edges of each face. Let $F_0 = \emptyset$.
+  We will add edges to $F_0$ maintaining that $(V, F \cup F_0)$ is a bipartite graph.
+
+  Suppose that there exists a face $uvw$ in $G$ with $uv, vw \notin F \cup F_0$, $wu \in F \cup F_0$.
+  If $F \cup F_0 \cup \{ uv \}$ or $F \cup F_0 \cup \{ vw \}$ is bipartite, then
+  add the appropriate edge to $F_0$. If adding either of these edges to $F_0$ creates
+  an odd circle in $(V, F \cup F_0)$, then there exists a path $P_{uv}$ of odd
+  length from $u$ to $v$ and a path $P_{vw}$ of odd length from $v$ to $w$. Thus $P{uv}
+  + P{vw} + wu$ is a closed walk of odd length. But that is a contradiction as
+  $(V, F \cup F_0)$ is a bipartite graph.
+
+  Now suppose that there exists a face $uvw$ in $G$ such that none of its edges is
+  contained in $F \cup F_0$. If either of its edges can be added to $F_0$ maintaining a
+  bipartite graph, then put those edges in $F_0$. Otherwise there exist odd paths
+  $P_{uv}, P_{vw}, P_{wu}$ as above. Concatenating these paths gives a closed walk
+  of odd length and that yields a contradiction.
+
+  $(V, F + F_0)$ clearly contains an edge from each wheel and contains two
+  edges of each face of $G$. So $H' = (V, E - (F \cup F_0))$ contains exactly one edge
+  from each face, and has no isolated vertices.
 \end{proof}
 
+One can phrase the Goddard-Henning conjecture in the dual graph as well.
+
+\begin{claim}
+  $G^* = (V^*, E^*)$ is the dual of a simple triangulated graph of order at least $4$
+  if and only if $G^*$ is a $3$-regular $2$-edge-connected planar graph of order at least $4$.
+\end{claim}
+\begin{proof}
+  It is trivial that $G^*$ is $3$-regular if and only if its dual is triangulated.
+
+  It is also easy to see that a cut consisting of one edge corresponds to a loop
+  edge in the dual, and a cut consisting of two edges corresponds to a pair of parallel edges.
+
+  Finally, by $3$-regularity and using Euler's formula $$f^* = m^* - n^* + 2 =
+  3n^*/2 - n + 2 = n^*/2 + 2,$$ where $f^*$, $m^*$, and $n^*$ denote the number of faces, edges
+  and vertices of $G^*$. Thus the dual of $G^*$ has at least $4$ vertices if
+  and only if $4 \le n^*/2 + 2$, i.e. $G^*$ has at least $4$ vertices.
+\end{proof}
+
+\begin{guess} \label{s:dual}
+  Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
+  Then there exists a subgraph $H^* = (V^*, F^*)$ in $G^*$ that has the following $2$ properties.
+  \begin{enumerate}
+    \item It does not contain any odd cut of $G^*$.
+    \item For every face $f$ of $G^*$ it contains at least one edge that has exactly one
+    endpoint on $f$.
+  \end{enumerate}
+\end{guess}
+
+\begin{claim}
+  \ref{s:dual} is equivalent with \ref{s:bipartite}.
+\end{claim}
+\begin{proof}
+  We show that given a subgraph $H = (V, F)$ that meets the requirements of \ref{s:bipartite},
+  the edges corresponding to $F$ in the dual of $G$ form a subgraph $H^*$ required by
+  \ref{s:dual}, and vice versa. It may be worth noting that the defined $H^*$ is
+  not necessarily the same as the dual graph of $H$.
+
+  It follows from the fact that circles of a planar graph correspond to minimal cutsets in the
+  dual graph, that $H$ is bipartite if and only if $H^*$ does not contain any odd cut of $G^*$.
+
+  Moreover, an edge from a wheel defined by $v$ in $G$, corresponds to an edge
+  that has exactly one endpoint on the face that corresponds to $v$ in the dual graph of $G$.
+  Hence $H$ contains at least one edge from each wheel if and only if for every face
+  of $G^*$, $H^*$ contains at least one edge that has exactly one endpoint on that face.
+\end{proof}
+
+\begin{guess}\label{s:dual_comp}
+  Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
+  Then there exists a subgraph that has the following $2$ properties.
+  \begin{enumerate}
+    \item It intersects every odd cut of $G^*$.
+    \item For every face $f$ of $G^*$ it does not contain all the edges having exactly one
+    endpoint on $f$.
+  \end{enumerate}
+\end{guess}
+
+\begin{claim}
+  \ref{s:dual} holds if and only if \ref{s:dual_comp} holds.
+\end{claim}
+\begin{proof}
+  If $H^*$ meets the requirements of either of the statements, the complementer subgraph in $G^*$
+  meets the requirements of the other.
+\end{proof}
+
+A $2$-factor of a graph $G = (V, E)$ consists of disjoint circles covering $V$.
+We can formulate a sufficient condition for the Goddard-Henning conjecture with
+the help of $2$-factors.
+
+\begin{guess} \label{s:2-factor}
+  Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
+  Then there exists a $2$-factor not containing any of the faces.
+\end{guess}
+\begin{claim}
+  If Statement \ref{s:2-factor} holds, then \ref{s:dual} holds.
+\end{claim}
+\begin{proof}
+  Let $H^* = (V^*, F^*)$ be the $2$-factor containing none of the faces of $G^*$.
+
+  Every cut of $G^*$ has an even number of common edges with every circle in $H^*$.
+  Therefore $H^*$ does not contain any odd cuts of $G^*$.
+
+  Let $f = v_1v_2 \dots v_l$ be a face of $G^*$. As $F^*$ does not contain $f$,
+  there must exist a $v_i$ such that $v_iv_{i + 1} \notin F^*$. Moreover, every
+  vertex has degree $2$ in $H^*$, so there is an edge starting from $v_i$ that leaves $f$.
+\end{proof}
+
+TODO: leaving a face is not the same as having exactly one common vertex. Correct it!
+
+The existence of $2$-factors in which some cycles are not allowed, is a well-studied
+part of graph theory. We will cover some of these results in Chapter \ref{ch:2-factors}.
+
+Statement \ref{s:2-factor} can easily be converted into a statement about perfect matchings.
+
+\begin{guess}
+  Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
+
+  TBD
+\end{guess}
 TBD
+
+
 TODO: Add also a figure about these statements.
