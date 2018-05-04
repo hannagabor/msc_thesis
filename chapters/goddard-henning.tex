@@ -134,8 +134,8 @@ One can phrase the Goddard-Henning conjecture in the dual graph as well.
   Then there exists a subgraph $H^* = (V^*, F^*)$ in $G^*$ that has the following $2$ properties.
   \begin{enumerate}
     \item It does not contain any odd cut of $G^*$.
-    \item For every face $f$ of $G^*$ it contains at least one edge that has exactly one
-    endpoint on $f$.
+    \item For every face $f$ of $G^*$, $H^*$ contains an edge $e$ not on $f$ that has at least one
+    endpoint on $f$. We say that $e$ leaves the face $f$.
   \end{enumerate}
 \end{guess}
 
@@ -152,9 +152,9 @@ One can phrase the Goddard-Henning conjecture in the dual graph as well.
   dual graph, that $H$ is bipartite if and only if $H^*$ does not contain any odd cut of $G^*$.
 
   Moreover, an edge from a wheel defined by $v$ in $G$, corresponds to an edge
-  that has exactly one endpoint on the face that corresponds to $v$ in the dual graph of $G$.
+  that leaves the face that corresponds to $v$ in the dual graph of $G$.
   Hence $H$ contains at least one edge from each wheel if and only if for every face
-  of $G^*$, $H^*$ contains at least one edge that has exactly one endpoint on that face.
+  of $G^*$, $H^*$ contains at least one edge that leaves that face.
 \end{proof}
 
 \begin{guess}\label{s:dual_comp}
@@ -162,8 +162,7 @@ One can phrase the Goddard-Henning conjecture in the dual graph as well.
   Then there exists a subgraph that has the following $2$ properties.
   \begin{enumerate}
     \item It intersects every odd cut of $G^*$.
-    \item For every face $f$ of $G^*$ it does not contain all the edges having exactly one
-    endpoint on $f$.
+    \item For every face $f$ of $G^*$ it does not contain all the edges leaving $f$.
   \end{enumerate}
 \end{guess}
 
@@ -196,8 +195,6 @@ the help of $2$-factors.
   there must exist a $v_i$ such that $v_iv_{i + 1} \notin F^*$. Moreover, every
   vertex has degree $2$ in $H^*$, so there is an edge starting from $v_i$ that leaves $f$.
 \end{proof}
-
-TODO: leaving a face is not the same as having exactly one common vertex. Correct it!
 
 The existence of $2$-factors in which some cycles are not allowed, is a well-studied
 part of graph theory. We will cover some of these results in Chapter \ref{ch:2-factors}.
