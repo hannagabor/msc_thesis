@@ -1,6 +1,6 @@
 As a reminder: the Goddard-Henning conjecture states that every simple triangulated
 planar graph of order at least $4$ has total domatic number at least $2$. In this
-chapter we try to find (TODO: find a better phrase) equivalent statements to the
+chapter we try to find equivalent statements to the
 conjecture, as well as (hopefully) slightly stronger statements. Even if the stronger
 statements are not true, they can be useful for proving the conjecture in special cases.
 (e.g. Theorem \ref{thm:odd})
@@ -182,7 +182,7 @@ the help of $2$-factors.
   Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
   Then there exists a $2$-factor not containing any of the faces.
 \end{guess}
-\begin{claim}
+\begin{claim} \label{c:2-factor}
   If Statement \ref{s:2-factor} holds, then \ref{s:dual} holds.
 \end{claim}
 \begin{proof}
@@ -201,12 +201,19 @@ part of graph theory. We will cover some of these results in Chapter \ref{ch:2-f
 
 Statement \ref{s:2-factor} can easily be converted into a statement about perfect matchings.
 
-\begin{guess}
+\begin{guess} \label{s:matching}
   Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
-
-  TBD
+  Then there exists a perfect matching containing at least one edge from each face.
 \end{guess}
-TBD
+\begin{claim}
+  Statement \ref{s:2-factor} holds if and if Statement \ref{s:matching} holds.
+\end{claim}
+\begin{proof}
+  As $G^*$ is $3$-regular, a subgraph is a $2$-factor if and only if the complementer
+  subgraph is a perfect matching. Clearly, a subgraph contains none of the faces
+  if and only if the complementer subgraph does contain at least one edge from
+  each face.
+\end{proof}
 
-
-TODO: Add also a figure about these statements.
+TODO: Add a figure about these statements, mention how Barnette's conjecture fits
+here.
