@@ -63,11 +63,45 @@ are $2$-coupon colorable.
     \item Every face has vertices from both color classes.
   \end{enumerate}
   The construction of the graph starts with a simple triangle. Color two vertices
-  of the triangle to blue, and the remaining vertex to red. Color the vertex added
-  to the graph in the first step to red. This coloring has the desired properties.
-  When a vertex is inserted into a face, color the new vertex to red, if there is
-  only one red vertex on the face's boundary, and blue otherwise. This trivially
+  of the triangle to black, and the remaining vertex to white. Color the vertex added
+  to the graph in the first step to white. This coloring has the desired properties.
+  When a vertex is inserted into a face, color the new vertex to white, if there is
+  only one white vertex on the face's boundary, and black otherwise. This trivially
   maintains the desired properties.
+\end{proof}
+
+Goddard and Henning established the conjecture for a few cases.
+
+\begin{claim} \label{c:odd}
+  Let $G$ be a a simple triangulated graph. If all the
+  vertices of $G$ have an odd degree, then there exists a coupon coloring with $2$ colors.
+\end{claim}
+\begin{proof}
+  There exists a proper $4$-coloring of the vertices. As every vertex $v$ has an
+  odd degree, there exists an odd circle in the neighborhood of $v$. Hence, in a proper
+  $4$-coloring $v$ has neighbors from at least $3$ color classes. This means that
+  the union of any two color classes forms a total dominating set.
+\end{proof}
+
+\begin{claim}
+  If $G$ can be obtained from a triangulated graph $H$ by putting a new vertex on every
+  face and connecting them with the vertices of that face, then $G$ it $2$-coupon
+  colorable.
+\end{claim}
+\begin{proof}
+  Take a proper $4$-coloring on the vertices of $H$ and define a $2$-coloring by taking
+  the union of $2-2$ color classes. The obtained coloring has the property that
+  none of the faces is monochromatic. Color the added vertices to black if the face
+  has only one black vertex, and color it to white otherwise.
+\end{proof}
+
+\begin{claim}
+  Let $G$ be a a simple triangulated graph of order at least $4$. If the dual
+  of $G$ is Hamiltonian, then $G$ admits two disjoint total dominating sets.
+\end{claim}
+\begin{proof}
+  Let $C$ be the Hamiltonian graph in the dual graph. Color the vertices of $G$
+  inside $C$ to black, and the vertices outside of $C$ to white.
 \end{proof}
 
 \section{Outerplanar and Hamiltonian graphs}
