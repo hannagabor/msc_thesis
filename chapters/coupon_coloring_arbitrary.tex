@@ -20,13 +20,14 @@ Sometimes it is more convenient to look at total dominating sets as color classe
 \begin{remark}
   We refer as proper colorings to colorings in the usual sense. I.e. colorings of
   the vertices such that for every vertex $v$, none of the neighbors of $v$ has the
-  same color as $v$. 
+  same color as $v$.
 \end{remark}
 
 \section{Complexity}
 
 It turns out that determining the total domatic number (or equivalently the
-coupon coloring number) of a graph is rather hard. Even determining if the total
+coupon coloring number) of a graph is rather hard. Heggernes and Telle (TODO:REF) showed that
+even determining whether the total
 domatic number of a graph is at least $2$ is NP-complete. We prove this by showing
 that a variant of 3SAT is reducible to this question in polynomial time.
 
@@ -106,14 +107,57 @@ graph.
 \section{Degree restrictions}
 
 A natural question is whether graphs with an appropriately big minimum degree
-always have a total domatic number of at least $2$.
+always have a total domatic number of at least $2$. Zelinka (TODO:REF) showed
+that this is not the case.
 
 \begin{thm}
-  For every $d$ there exists a graph with minimum degree $d$ and without $2$
-  disjoint total dominating sets.
+  For every $\delta \in \mathbb{Z}^+$ there exists a graph without $2$
+  disjoint total dominating sets with minimum degree $\delta$.
 \end{thm}
 \begin{proof}
-  TODO
+  We define a bipartite graph $G = (U, V ; E)$ for arbitrary $\delta$ as follows.
+  Let $U$ be a set of cardinality $2\delta - 1$, and $V$ be the set of all subsets of
+  $U$ consisting of $\delta$ elements. For all $ u \in U, v \in V$ vertices $uv \in E$
+  if and only if $v$ contains $u$. Clearly, each vertex of $U$ has at least $\delta$
+  neighbors, and each vertex of $V$ has exactly $\delta$ neighbors. Suppose that
+  there exists a $2$-coupon coloring. Then there exists a monochromatic $U_0 \in U$
+  containing $\delta$ vertices. Thus, there exists a $v \in V$ corresponding to $U_0$.
+  That is a contradiction, since the neighborhood of $v$ is $U_0$, and that is monochromatic.
 \end{proof}
 
-TODO: Other degree stuff (k-regular, maxdeg-mindeg small enough, etc). Or maybe not.
+A natural next question might arise. The graph constructed above has a large number
+of vertices compared to the minimum degree. The other extreme is the case of
+complete graphs, where the minimum degree $\delta$ is $n - 1$. This is not an interesting case:
+if $n \ge 4$, then every subset $U$ of the vertices is a total dominating set, if $|U| \ge 2$.
+We show a less strict but sufficient condition for the existence of $2$ disjoint dominating sets:
+a lower bound for the minimum degree defined by the order of the graph.
+The next theorem is also from Zelinka (TODO:REF). We show here an easier proof than
+the original.
+
+\begin{claim}
+  Let $G = (V,E)$ be a graph of order $n$ with minimum degree $\delta$. Then every subset
+  of $V$ with at least $n - \delta + 1$ vertices is a total dominating set.
+\end{claim}
+\begin{proof}
+  Let $S \subseteq V$ be a set of cardinality at least $n - \delta + 1$ and $v \in V$ be
+  an arbitrary vertex. $v$ has at least $\delta$ neighbors, and $|(V - v) \cap S| \ge
+  n - \delta$, so there must exist a vertex $u \in S$ adjacent to $v$.
+\end{proof}
+
+\begin{cor}
+  Let $G = (V,E)$ be a graph of order $n$ with minimum degree $\delta$. If $\delta \ge 1 + n/2$,
+  then there exist $2$ disjoint dominating sets in $G$.
+\end{cor}
+\begin{proof}
+  If $\delta \ge 1 + n/2$, then $2(n - \delta + 1) \le n$, and therefore the total
+  domatic number of $G$ is at least $2$.
+\end{proof}
+
+\begin{remark}
+  Aram, Sheikholeslami and Volkmann (TODO:REF) proved a lower bound for the total
+  domatic number in terms of the order, the minimal and the maximal degree of the
+  graph. Using this lower bound they proved that the domatic number of an $r$-regular graph
+  is at least $r/3ln(r)$. By an easy calculation follows from this theorem that
+  if a graph is $r$-regulat with $r \ge 5$, then the total domatic number is at least
+  $2$.
+\end{remark}
