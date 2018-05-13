@@ -26,8 +26,8 @@ Sometimes it is more convenient to look at total dominating sets as color classe
 \section{Complexity}
 
 It turns out that determining the total domatic number (or equivalently the
-coupon coloring number) of a graph is rather hard. Heggernes and Telle (TODO:REF) showed that
-even determining whether the total
+coupon coloring number) of a graph is rather hard. Heggernes and Telle \cite{np-complete}
+showed that even determining whether the total
 domatic number of a graph is at least $2$ is NP-complete. We prove this by showing
 that a variant of 3SAT is reducible to this question in polynomial time.
 
@@ -107,7 +107,7 @@ graph.
 \section{Degree restrictions}
 
 A natural question is whether graphs with an appropriately big minimum degree
-always have a total domatic number of at least $2$. Zelinka (TODO:REF) showed
+always have a total domatic number of at least $2$. Zelinka \cite{zelinka} showed
 that this is not the case.
 
 \begin{thm}
@@ -131,7 +131,7 @@ complete graphs, where the minimum degree $\delta$ is $n - 1$. This is not an in
 if $n \ge 4$, then every subset $U$ of the vertices is a total dominating set, if $|U| \ge 2$.
 We show a less strict but sufficient condition for the existence of $2$ disjoint dominating sets:
 a lower bound for the minimum degree defined by the order of the graph.
-The next theorem is also from Zelinka (TODO:REF). We show here an easier proof than
+The next theorem is also from Zelinka \cite{zelinka}. We show here an easier proof than
 the original.
 
 \begin{claim}
@@ -154,7 +154,7 @@ the original.
 \end{proof}
 
 \begin{remark}
-  Aram, Sheikholeslami and Volkmann (TODO:REF) proved a lower bound for the total
+  Aram, Sheikholeslami and Volkmann \cite{regular} proved a lower bound for the total
   domatic number in terms of the order, the minimal and the maximal degree of the
   graph. Using this lower bound they proved that the domatic number of an $r$-regular graph
   is at least $r/3ln(r)$. By an easy calculation follows from this theorem that

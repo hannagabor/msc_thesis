@@ -1,7 +1,7 @@
 \section{Formulate the conjecture}
 
 From now on we will focus on $2$-coupon colorings and planar graphs.
-A conjecture of Goddard and Henning is the following.
+A conjecture of Goddard and Henning \cite{gh} is the following.
 
 \begin{conj}
   If $G$ is a simple triangulated planar graph of order at least $4$, then the
@@ -38,7 +38,7 @@ A conjecture of Goddard and Henning is the following.
   \label{fig:sungraph}
 \end{figure}
 
-\section{Easier special cases}
+\section{Fast proofs for some special cases}
 
 There are some sufficient conditions known for having a total domatic number of
 at least $2$. We will cover most of the known cases along the way. In this section
@@ -73,7 +73,7 @@ are $2$-coupon colorable.
   maintains the desired properties.
 \end{proof}
 
-Goddard and Henning established the conjecture for some cases. We show now three
+Goddard and Henning \cite{gh} established the conjecture for some cases. We show now three
 of them.
 
 \begin{claim} \label{c:odd}
@@ -99,7 +99,7 @@ of them.
   has only one black vertex, and color it to white otherwise.
 \end{proof}
 
-\begin{claim}
+\begin{claim} \label{ham_dual}
   Let $G$ be a a simple triangulated graph of order at least $4$. If the dual
   of $G$ is Hamiltonian, then $G$ admits two disjoint total dominating sets.
 \end{claim}
@@ -288,7 +288,9 @@ One can phrase the Goddard-Henning conjecture in the dual graph as well.
 
 A $2$-factor of a graph $G = (V, E)$ consists of disjoint circles covering $V$.
 We can formulate a sufficient condition for the Goddard-Henning conjecture with
-the help of $2$-factors.
+the help of $2$-factors. The motivation for such a reformulation is the fact that
+the existence of $2$-factors in which some cycles are not allowed, is a well-studied
+part of graph theory.
 
 \begin{guess} \label{s:2-factor}
   Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
@@ -308,9 +310,6 @@ the help of $2$-factors.
   vertex has degree $2$ in $H^*$, so there is an edge starting from $v_i$ that leaves $f$.
 \end{proof}
 
-The existence of $2$-factors in which some cycles are not allowed, is a well-studied
-part of graph theory. We will cover some of these results in Chapter \ref{ch:2-factors}.
-
 Statement \ref{s:2-factor} can easily be converted into a statement about perfect matchings.
 
 \begin{guess} \label{s:matching}
@@ -327,4 +326,4 @@ Statement \ref{s:2-factor} can easily be converted into a statement about perfec
   each face.
 \end{proof}
 
-TODO: Add a figure about these statements + hypergraphs.
+TODO: Add a figure about these statements.
