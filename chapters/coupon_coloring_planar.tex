@@ -6,10 +6,10 @@ maximal outerplanar graphs first.
 \begin{definition}
    A graph is outerplanar if it has a planar drawing for which all vertices
    belong to the outer face. A maximal outerplanar graph is an outerplanar graph
-   such that adding any edge results in a not outerplanar graphs.
+   such that adding any edge results in a non-outerplanar graphs.
 \end{definition}
 \begin{remark}
-  Te outer face of a maximal outerplanar graph is a Hamiltonian cycle.
+  The outer face of a maximal outerplanar graph is a Hamiltonian cycle.
 \end{remark}
 
 In order to provide the mentioned characterization we need to introduce a few
@@ -24,7 +24,7 @@ notions first.
 \end{remark}
 \begin{remark}
   If $G$ has an odd number of vertices, then $M(G)$ does not have two disjoint
-  total dominating sets, as in a $2$-coupon coloring of $M(G)$, the vertices of
+  total dominating sets, as in a $2$-coupon coloring of $M(G)$ the vertices of
   $G$ must have alternating colors. The graph on figure $\ref{fig:sungraph}$ is
   the sun graph of the $BDE$ triangle.
 \end{remark}
@@ -33,7 +33,7 @@ notions first.
   following $3$ conditions hold.
   \begin{enumerate}
     \item $deg(v) \ge 3$
-    \item Every neighbor of $v$ has degree at least $3$
+    \item Every neighbor of $v$ has degree at least $3$.
     \item For every $u, w$ neighbors of $v$ the length of the $uw$ path on the
     outer face not containing $v$ is divisible by $4$.
   \end{enumerate}
@@ -47,7 +47,7 @@ notions first.
   central vertices. Because of the maximality of the graph there exists a $uvw$
   triangle. Index the vertices along the outer face form $v = v_1$ to $u = v_{n}$.
   Suppose $w = v_i$. From the centrality of $v$ follows that $i \equiv 2\
-  (\textrm{mod}\ 4)$. On the other hand $u$ is also a central vertex, hence
+  (\textrm{mod}\ 4)$. On the other hand, $u$ is also a central vertex, hence
   $i \equiv 1\ (\textrm{mod}\ 4)$.
 \end{proof}
 \begin{definition}
@@ -68,11 +68,63 @@ The key characterization theorem is the following.
 \end{thm}
 
 For proving this theorem we need some observations about generalized sun graphs.
-TODO
 
-\begin{lemma}
-  The outer face of a maximal outerplanar graph has a chord TODO
+\begin{definition}
+  Let $G$ be a maximal outerplanar graph. We say that a $uv$ edge is a chord
+  of length $i$, if there is a $uv$ path of length $i$ on the outer face. (This means
+  that if $uv$ is a chord of length $i$, then it is also a chord of length $n - i$.)
+\end{definition}
+
+\begin{lemma} \label{lem:two_chord}
+  A maximal outerplanar graph of order $n \ge 3$ has a chord of length $2$.
 \end{lemma}
+\begin{proof}
+  It is trivial for $n = 3$. Suppose $n \ge 4$ and
+  let $uv$ be a chord of minimal length among chords of length at least $2$. By
+  the maximality of the graph there exists a $uvw$ face, where $w$ is on the shorter
+  $uv$ path of the outer face. If $uv$ is not a chord of length $2$, then $uw$ or $vw$
+  is a chord of length at least $2$ and less than the length of the $uv$ chord.
+\end{proof}
+
+\begin{lemma} \label{lem:3-4_chord}
+  A maximal outerplanar graph of order $n \ge 5$ has a chord of length $3$ or $4$.
+\end{lemma}
+\begin{proof}
+  Let $uv$ be a chord of minimal length among chords of length at least $3$. By
+  the maximality of the graph there exists a $uvw$ face, where $w$ is on the $uv$ path
+  on the outer face that defines the length of the chord. If on this path $w$ has a distance
+  bigger than $2$ from either $u$ or $v$, than $uw$ or $vw$ is a chord contradicting
+  the minimality of $uv$. Thus, the length of the $uv$ path is at most $4$.
+\end{proof}
+
+\begin{lemma} \label{lem:del_face}
+  If $G$ is a maximal planar graph of order $n \ge 7$, then there exists a bounded
+  face, such that the deletion of this face divides $G$ into three graphs with the
+  following properties.
+  \begin{enumerate}
+    \item At most one of the three graphs has more than $3$ bounded faces.
+    \item At least one of the three graphs has $2$ or $3$ faces.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  For $n \le 11$, the statement is easy to verify.
+
+  For $n > 11$ delete the faces with $2$ common edges with the unbounded face. Then in the remaining
+  graph $G_1$ delete the faces that now have $2$ common edges with the unbounded face.
+
+  We claim that the remaining graph $G_2$ is not empty. $G$
+  has $m = \frac{3(f - 1) + n}{2}$ edges, where $f$ denotes the number of faces.
+  Then by Euler's formula $n = f + 1$, hence $G$ has at least $11$ faces. In the
+  first deleting step at most $n/2$ faces are deleted, and in the second step at most
+  $|G_1|/2$ faces are deleted. Thus at most $3(f + 1) / 4$ faces are deleted.
+  $3(f + 1) / 4 \le f - 2$ if $f \ge 11$.
+
+  Finally, choose a face $f_0$ from the remaining graph $G_2$, that has $2$ common edges with
+  the unbounded face of $G_2$. We claim that $f_0$ has the desired properties. $f_0$ has at most
+  one neighboring face in $G_2$, and one or two neighboring faces $f_1$ and maybe $f_2$ outside of $G_2$.
+  Both of $f_1$ and $f_2$ has at most two neighboring faces outside of $G_1$, and
+  at least one of $f_1$ and $f_2$ has at least one neighboring face outside of $G_1$.
+\end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:outerplanar}]
   First we show that generalized sun graphs do not have $2$ disjoint total
@@ -86,27 +138,27 @@ TODO
   vertex with an odd index is central or has degree $2$. Let $c$ be a $2$-coloring of
   the graph. We show that $c$ cannot be a $2$-coupon coloring. The cardinality of the
   vertices implies that there must be two consecutive vertices $v_{2i}$ and $v_{2i + 2}$
-  with the same color (say white). If $v_{2i}$ has only white neighbors, then this
-  coloring is not a $2$-coupon coloring. So suppose $v_{2i}$ has a black neighbor
-  $v_j$. In this case, $v_{2i}$ is a central vertex. The $v_{2i}v_j$ edge cuts the graph
-  into two parts ($v_{2i}v_j$ is an edge in both graphs). Both of
-  these graphs are generalized sun graphs, as $v_{2i}$ either remains a central
-  vertex or become a vertex of degree $2$ in these smaller graphs, whereas other
+  with the same color (say white). If $v_{2i + 1}$ has only white neighbors, then this
+  coloring is not a $2$-coupon coloring. So suppose $v_{2i + 1}$ has a black neighbor
+  $v_j$. In this case $v_{2i + 1}$ is a central vertex. The $v_{2i + 1}v_j$ edge divides the graph
+  into two parts ($v_{2i + 1}v_j$ is an edge in both graphs). Both of
+  these graphs are generalized sun graphs, as $v_{2i + 1}$ either remains a central
+  vertex or becomes a vertex of degree $2$ in these smaller graphs, whereas other
   central vertices remain central vertices. By induction, the restriction of
   $c$ is not a $2$-coupon coloring in either of the smaller graphs. If there is
   a vertex $v_l$ with a monochromatic neighborhood in one of the smaller graphs
-  and $l \neq 2i, l \neq j$, then $v_l$ has the same neighborhood in $G$, hence
-  all its neighbors are from the same color class. $v_{2i}$ cannot violate the
+  and $l \neq 2i + 1,\ l \neq j$, then $v_l$ has the same neighborhood in $G$, hence
+  all its neighbors are from the same color class. $v_{2i + 1}$ cannot violate the
   condition, as it was chosen in a way that it has both a black and a white neighbor
   in both graphs. Thus the only remaining case is when $v_j$ has a monochromatic
-  neighborhood in both graphs. But in this case, all of its neighbors are from
-  the same color class as $v_{2i}$, so it has a monochromatic neighborhood also
+  neighborhood in both graphs. But in this case all of its neighbors are from
+  the same color class as $v_{2i + 1}$, so it has a monochromatic neighborhood also
   in $G$.
 
   \vspace{0.4cm}
 
   Now we show that if a graph $G$ of order $n$ is not a generalized sun graph
-  then it does have $2$ disjoint total dominating sets.
+  then it does have two disjoint total dominating sets.
 
   If $n \equiv 0\ (\textrm{mod}\ 4)$, then it is easy to find a $2$-coupon coloring:
   color the vertices along the boundary of the outer face by repeating the pattern
@@ -115,7 +167,7 @@ TODO
   If $n \equiv 1\ (\textrm{mod}\ 4)$, then the same coloring method works, if you
   start the coloring from the right vertex. By lemma \ref{lem:two_chord} there
   exists a chord $uv$ of length $2$. Alternating colors in pairs starting from $v$
-  does the job.
+  does the job. (See Figure \ref{fig:4k+1}.)
   \begin{figure}[h]
     \centering
     \includegraphics[width=50mm]{4k+1}
@@ -124,7 +176,7 @@ TODO
   \end{figure}
 
   If $n \equiv 3\ (\textrm{mod}\ 4)$, then start the coloring from a vertex next
-  to $v$.
+  to $v$. (See Figure \ref{fig:4k+3}.)
   \begin{figure}[h]
     \centering
     \includegraphics[width=50mm]{4k+3}
@@ -132,10 +184,76 @@ TODO
     \label{fig:4k+3}
   \end{figure}
 
-  Suppose $n \equiv 2\ (\textrm{mod}\ 4)$. We show that if $G$ does not have $2$
-  disjoint total dominating sets, then it is a generalized sun graph.
+  Suppose $n \equiv 2\ (\textrm{mod}\ 4)$. We show by induction that if $G$ does not have $2$
+  disjoint total dominating sets, then it is a generalized sun graph.\\
+  The case $k = 1$ is easy to check.\\
+  If $G$ has a chord $uv$ of length $3$, then $uv$ divides the graph into two parts:
+  $G_1$ of order $4$ and $G_2$ of order $4k$. By alternating colors in pairs one can obtain
+  $2$-coupon colorings of $G_1$ and $G_2$, where both $u$ and $v$ are colored to black
+  in both graphs.\\
+  If $G$ does not have a chord of length $3$, then by Lemma \ref{lem:3-4_chord}
+  there exists a chord $uv$ of length $4$. Then $uv$ divides $G$ into two graphs.
+  One of them must be the maximal outerplanar graph $G_5$ of order $5$. $u$ and $v$
+  must be the degree $3$ vertices of $G_5$, as otherwise there would be a chord of length $3$
+  in $G$. Note that in a $2$-coupon coloring $u$ and $v$ must have the same colors
+  in order to create a proper neighborhood for the degree $2$ vertices of $G_5$.
+  Consider the face $uvw$, where $w$ is not in $G_5$. The deletion of this face
+  divides $G$ into $3$ graphs: $G'$, $G''$ and $G_5$. (It might be that $G'$ or $G''$ is
+  degenerated in the sense that it consists only of one edge.) Let $G'$ be the graph containing
+  $u$ and $w$. Without loss of generality we may assume that $|G''| \le |G'|$.\\
+  Choose the $uv$ chord in a way, such that $|G'|$ is minimal. We may assume that
+  $G'$ has at most $3$ faces by Lemma \ref{lem:del_face}, and thus $|G'| \le 5$.
+  Thus, there are $4$ cases depending on the size of $G'$.
 
-  TODO
+  \begin{itemize}
+    \item Case $1$: $|G'| = 2$.
+      In this case $G''| = 4k - 2$. If $G''$ has a $2$-coupon coloring, then
+      it can easily be expanded to a $2$-coupon coloring of $G$. If $G''$ does
+      not have a $2$-coupon coloring, then it is a generalized sun graph by induction.
+      If $v$ is a degree $2$ or central vertex in $G''$, then color the vertices of $G''$ by
+      alternating colors in pairs, starting with white from $w$, but color $v$ to
+      black. Let $x$ denote the vertex before $v$. (See Figure \ref{fig:case1}.)
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=60mm]{case1}
+        \caption{Case $1$}
+        \label{fig:case1}
+      \end{figure}
+      This way, only $v$ can have a monochromatic neighborhood in $G''$: if $v$ has degree
+      $2$, then $wx$ is an edge, and if $v$ is central, then $v$ and $x$ have a common
+      neighbor in $G''$ and $v$ has only white neighbors. $G_5$ can be colored to
+      provide $v$ the missing color. \\
+
+      If $v$ is neither a degree $2$ vertex nor a central vertex, then $w$ is. In
+      this case $w$ is a central vertex in $G$ and thus $G$ is a generalized sun graph.
+    \item Case 2: $|G'| = 3$.
+      In a $2$-coupon coloring $u$ and $v$ must have the same color, whereas $u$
+      and $w$ must have different colors. Let $H$ be the graph obtained from $G$
+      by deleting $G_5$ and identifying $uw$ with $vw$. (See \ref{fig:case2})
+      $G$ is $2$-coupon colorable if and only if $H$ is $2$-coupon colorable. On the other hand,
+      $G$ is a generalized sun graph if and only if $H$ is a generalized sun graph.
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=150mm]{case2}
+        \caption{Case $2$: $G$ (left) and $H$ (right)}
+        \label{fig:case2}
+      \end{figure}
+    \item Case $3$: $|G'| = 4$.
+      If $|G'| = 4$, then $uw$ is a chord of length $3$, and that is a contradiction.
+    \item Case $4$: $|G'| = 5$.
+      $u$ and $w$ must be the degree $3$ vertices in $G'$, otherwise we could
+      find a chord of length $3$. In a $2$-coupon coloring $u$ and $w$ must have
+      the same color. Let $H$ be the graph obtained from $G$ by deleting $G_5$
+      and identifying $uw$ with $vw$. (See \ref{fig:case4})
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=150mm]{case4}
+        \caption{Case $4$: $G$ (left) and $H$ (right)}
+        \label{fig:case4}
+      \end{figure}
+      $G$ is $2$-coupon colorable if and only if $H$ is $2$-coupon colorable. On the other hand,
+      $G$ is a generalized sun graph if and only if $H$ is a generalized sun graph.
+  \end{itemize}
 \end{proof}
 
 \begin{remark}
@@ -149,26 +267,30 @@ TODO
   dominating sets.
 \end{thm}
 \begin{proof}
-  Let $G$ be a triangulated Hamiltonian graph and let $n$ denote the number of
-  vertices in $G$.
-
   TODO
 \end{proof}
 
-\section{Graphs without low-degree vertices}
-TODO (Find the related article)
+\begin{remark}
+  Whitney \cite{ham1} proved that each triangulated planar graph without separating
+  triangles is Hamiltonian. Helden \cite{ham5} strengthened this statement by proving that
+  each triangulated planar graph with at most five separating triangles is Hamiltonian. 
+\end{remark}
 
-\section{Hypergraphs}
-  One TODO
+\section{Graphs without low-degree vertices}
+TODO (Find the related article for graphs without degree 3 vertices)
+TODO: hypergraphs
 
 \section{Barnette's conjecture}
 
-A conjecture of Barnette is the following.
+A conjecture of Barnette \cite{barnette} is the following.
 \begin{conj}
   Every 3-connected cubic planar bipartite graph is Hamiltonian.
 \end{conj}
 
 By \ref{ham_dual} if the Barnette-conjecture holds, then the Goddard-Henning
 conjecture also holds for Eulerian triangulations.
+
+Alt, Payne, Schmidt and Wood \cite{spec_barnette} proved that the conjecture holds
+for graphs, where the dual is an Eulerian planar triangulation and has a special $3$-coloring.
 
 TODO
