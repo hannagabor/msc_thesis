@@ -1,109 +1,3 @@
-From now on we will focus on $2$-coupon colorings and planar graphs.
-
-\section{Introducing the Goddard-Henning conjecture}
-
-A conjecture of Goddard and Henning is the following.
-
-\begin{conj}
-  If $G$ is a simple triangulated planar graph of order at least $4$, then the
-  total domatic number of $G$ is at least $2$.
-\end{conj}
-
-\begin{remark}
-  The simplicity of the graph is necessary. Suppose the graph on figure
-  \ref{fig:parallel} has a $2$-coupon coloring. Then $A$ and $C$ must have
-  different colors, because they are the only neighbors of $B$. Similarly, $C$
-  and $E$ must have different colors, as well as $E$ and $A$. That is a
-  contradiction, since $A$, $C$ and $E$ form a triangular.
-\end{remark}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=70mm]{parallel}
-  \caption{Simplicity is necessary}
-  \label{fig:parallel}
-\end{figure}
-
-\begin{remark}
-  Allowing triangulated disks (i.e. planar graphs with at most one face greater
-  than $3$), the conjecture does not hold. For example, the graph on figure
-  \ref{fig:sungraph} does not have a $2$-coupon coloring from similar reasons as
-  the previous one. We will show later that this graph is a member of a bigger
-  graph family without $2$ disjoint dominating sets.
-\end{remark}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=70mm]{sungraph}
-  \caption{The conjecture does not hold for triangulated disks}
-  \label{fig:sungraph}
-\end{figure}
-
-There are some sufficient conditions known for having a total domatic number of
-at least $2$. We will cover some of them along the way.
-The first example is a graph family for which an easy induction shows that they
-are $2$-coupon colorable.
-
-\begin{definition}
-  A graph is called a stacked graph if it can be constructed from a triangle by
-  repeatedly putting a new vertex in a face and connecting it with the vertices on
-  the boundary of that face.
-\end{definition}
-\begin{remark}
-  Stacked graphs are triangulated.
-\end{remark}
-\begin{claim}
-  Stacked graphs with at least $4$ vertices are $2$-coupon colorable.
-\end{claim}
-\begin{proof}
-  We can determine the colors of the vertices as the graph is constructed. The
-  current coloring will maintain two following two properties.
-  \begin{enumerate}
-    \item It is a $2$-coupon coloring of the current graph.
-    \item Every face has vertices from both color classes.
-  \end{enumerate}
-  The construction of the graph starts with a simple triangle. Color two vertices
-  of the triangle to black, and the remaining vertex to white. Color the vertex added
-  to the graph in the first step to white. This coloring has the desired properties.
-  When a vertex is inserted into a face, color the new vertex to white, if there is
-  only one white vertex on the face's boundary, and black otherwise. This trivially
-  maintains the desired properties.
-\end{proof}
-
-Goddard and Henning established the conjecture for a few cases.
-
-\begin{claim} \label{c:odd}
-  Let $G$ be a a simple triangulated graph. If all the
-  vertices of $G$ have an odd degree, then there exists a coupon coloring with $2$ colors.
-\end{claim}
-\begin{proof}
-  There exists a proper $4$-coloring of the vertices. As every vertex $v$ has an
-  odd degree, there exists an odd circle in the neighborhood of $v$. Hence, in a proper
-  $4$-coloring $v$ has neighbors from at least $3$ color classes. This means that
-  the union of any two color classes forms a total dominating set.
-\end{proof}
-
-\begin{claim}
-  If $G$ can be obtained from a triangulated graph $H$ by putting a new vertex on every
-  face and connecting them with the vertices of that face, then $G$ it $2$-coupon
-  colorable.
-\end{claim}
-\begin{proof}
-  Take a proper $4$-coloring on the vertices of $H$ and define a $2$-coloring by taking
-  the union of $2-2$ color classes. The obtained coloring has the property that
-  none of the faces is monochromatic. Color the added vertices to black if the face
-  has only one black vertex, and color it to white otherwise.
-\end{proof}
-
-\begin{claim}
-  Let $G$ be a a simple triangulated graph of order at least $4$. If the dual
-  of $G$ is Hamiltonian, then $G$ admits two disjoint total dominating sets.
-\end{claim}
-\begin{proof}
-  Let $C$ be the Hamiltonian graph in the dual graph. Color the vertices of $G$
-  inside $C$ to black, and the vertices outside of $C$ to white.
-\end{proof}
-
 \section{Outerplanar and Hamiltonian graphs}
 Zoltán Lóránt Nagy showed that the conjecture of Goddard and Henning holds for
 Hamiltonian graphs. For this, he characterized the $2$-coupon colorable
@@ -132,7 +26,7 @@ notions first.
   If $G$ has an odd number of vertices, then $M(G)$ does not have two disjoint
   total dominating sets, as in a $2$-coupon coloring of $M(G)$, the vertices of
   $G$ must have alternating colors. The graph on figure $\ref{fig:sungraph}$ is
-  the sun graph of the $BDE$ triangle. 
+  the sun graph of the $BDE$ triangle.
 \end{remark}
 \begin{definition}
   A vertex $v$ of a maximal outerplanar graph is called a central vertex if the
@@ -266,3 +160,8 @@ TODO (Find the related article)
 
 \section{A result using hypergraphs}
 TODO
+
+\section{Barnette's conjecture}
+\begin{conj}
+  Every 3-connected cubic planar bipartite graph is Hamiltonian.
+\end{conj}
