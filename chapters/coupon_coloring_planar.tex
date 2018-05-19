@@ -340,8 +340,27 @@ is at least two. We still need a Lemma for proceeding with the proof.
   each triangulated planar graph with at most five separating triangles is Hamiltonian.
 \end{remark}
 
-\section{Graphs containing a specific 2-factor}
-TODO
+With the help of the characterization of $2$-coupon colorable outerplanar graphs,
+we can also say something about graphs with other specific $2$-factors.
+
+\begin{claim}
+  Let $G$ be a simple triangulated graph of order at lest $4$. If $G$ has a $2$-factor
+  with none of the cycles having length congruent to $2$ modulo $4$, then the total
+  dominating number of $G$ is at least $2$.
+\end{claim}
+
+\begin{proof}
+  Each cycle splits the plane into two parts. For cycles $C_1$ and $C_2$, we say
+  that $C_1 < C_2$, if $C_1$ is inside $C_2$. With this ordering, the cycles of a
+  $2$-factor form a partially ordered set. Let $l$ denote the the maximum
+  number of elements in a chain.
+
+  If $l = 1$, then the claim follows from Theorem \ref{thm:outerplanar}, as each cycle
+  forms a $2$-coupon colorable outerplanar graph.
+
+  Suppose $l \ge 2$. Let $C_1, \dots C_t$ be the maximal cycles in the poset defined
+  by the $2$-factor. We 
+\end{proof}
 
 \section{Graphs without low-degree vertices}
 TODO (Find the related article for graphs without degree 3 vertices)
@@ -351,7 +370,7 @@ TODO: hypergraphs
 
 A conjecture of Barnette \cite{barnette} is the following.
 \begin{conj}
-  Every 3-connected cubic planar bipartite graph is Hamiltonian.
+  Every $3$-connected cubic planar bipartite graph is Hamiltonian.
 \end{conj}
 
 By \ref{ham_dual} if the Barnette-conjecture holds, then the Goddard-Henning
