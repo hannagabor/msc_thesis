@@ -70,7 +70,7 @@ The key characterization theorem is the following.
 For proving this theorem we need some observations about generalized sun graphs.
 
 \begin{definition}
-  Let $G$ be a maximal outerplanar graph. We say that a $uv$ edge is a chord
+  Let $G$ be a maximal outerplanar graph and $i \ge 2$. We say that a $uv$ edge is a chord
   of length $i$, if there is a $uv$ path of length $i$ on the outer face. (This means
   that if $uv$ is a chord of length $i$, then it is also a chord of length $n - i$.)
 \end{definition}
@@ -80,10 +80,10 @@ For proving this theorem we need some observations about generalized sun graphs.
 \end{lemma}
 \begin{proof}
   It is trivial for $n = 3$. Suppose $n \ge 4$ and
-  let $uv$ be a chord of minimal length among chords of length at least $2$. By
+  let $uv$ be a chord of minimal length. By
   the maximality of the graph there exists a $uvw$ face, where $w$ is on the shorter
   $uv$ path of the outer face. If $uv$ is not a chord of length $2$, then $uw$ or $vw$
-  is a chord of length at least $2$ and less than the length of the $uv$ chord.
+  is a chord of length less than the length of the $uv$ chord.
 \end{proof}
 
 \begin{lemma} \label{lem:3-4_chord}
@@ -262,19 +262,86 @@ For proving this theorem we need some observations about generalized sun graphs.
   vertex has neighbors from both color classes.
 \end{remark}
 
+As mentioned earlier, based on this theorem Zoltán Lóránt Nagy \cite{outerplanar}
+also showed that the total dominating number of Hamiltonian triangulated graphs
+is at least two. We still need a Lemma for proceeding with the proof.
+
+\begin{lemma}\label{lem:central}
+  If $G$ is a generalized sun graph of order $4k + 2$, then there exist at most
+  $k - 1$ chords incident to a central vertex.
+\end{lemma}
+\begin{proof}
+  The proof goes by induction. If $k = 1$, then there exists only one generalized sun graph
+  of order $4k + 2$, and it does not have any central vertices. Suppose $k > 1$.
+  We are done, if there is no chord incident to a central vertex. Otherwise, let $uv$ be
+  such a chord of minimal length, where $v$ is central. $uv$ divides the graph into
+  two generalized sun graphs. In both of these graphs, $v$ is either a degree $2$
+  vertex or a central vertex. Hence all the chords incident to a central vertex in $G$
+  must be either $uv$ or a chord with the same property in one of the smaller graphs.
+  By the minimality of $uv$, one of these graphs does not have chords incident to
+  a central vertex. The other graph is of order at most $4(k - 1) + 2$, thus by induction
+  it contains at most $k - 2$ chords incident to a central vertex.
+\end{proof}
+
+\begin{cor} \label{col:degree2}
+  In a generalized sun graph the number of central vertices is less than the number
+  of degree $2$ vertices.
+\end{cor}
+\begin{proof}
+  Let $G$ be a generalized sun graph of order $4k + 2$. The number of central
+  vertices is at most $k - 1$ by the previous lemma. The number of degree $2$ or
+  central vertices is $2k + 1$.
+\end{proof}
+
 \begin{thm}
   Every triangulated graph with a Hamiltonian circle admits $2$ disjoint
   dominating sets.
 \end{thm}
 \begin{proof}
-  TODO
+  A Hamiltonian triangulated graph $G$ can be obtained by identifying the Hamiltonian cycle
+  of two maximal outerplanar graphs $G_1$ and $G_2$. If at least one of these outerplanar graphs is
+  $2$-coupon colorable, then the same coloring is a $2$-coupon coloring of $G$.
+  By Theorem \ref{thm:outerplanar} we are done if at least one of these graphs is
+  not a generalized sun graph.
+
+  Suppose that $G_1$ and $G_2$ are generalized sun graphs. If the union of degree
+  $2$ vertices and central vertices is the same in $G_1$ and $G_2$, then by Corollary
+  \ref{col:degree2} there exists a vertex with degree $2$ in both graphs. Then this
+  vertex is a degree $2$ vertex in $G$ and that is a contradiction, as in a triangulated
+  planar graph every degree must be at least $3$.
+
+  Assume that each vertex is a degree $2$ or central vertex in $G_1$ or $G_2$.
+  Index the vertices along the Hamiltonian cycle from $v_1$ to $v_{4k + 2}$.
+  We claim that there exists an index $i$ such that $v_i$ is a degree $2$ vertex
+  in $G_1$ and $v_{i + 3}$ is a degree $2$ vertex in $G_2$. (If $i + 3$ is bigger than
+  $4k + 2$, we take $v_{i + 3 - (4k + 2)}$.) Let $I_1 = \{i | deg_{G_1}(v_i) = 2\}$,
+  $I_2 = \{i | deg_{G_2}(v_i) = 2\}$ and $J = \{i + 3 | i \in I_1\}$. By Corollary
+  \ref{col:degree2} the cardinality of all of these sets is at least $k + 2$, hence
+  there exists an index $i$ such that $i + 3 \in I_2 \cap J$, proving the claim.
+
+  Finally, we define a $2$-coupon coloring of $G$ as follows. Let $v_i$ be a vertex
+  as above. Color the vertices by alternating colors in pairs starting from $v_{i + 2}$.
+  (See Figure \ref{fig:ham}.) It is clear that all the vertices apart from $v_{i + 1}$
+  and $v_{i + 2}$ have neighbors in both color classes. However, $v_i$ is a degree $2$ vertex
+  in $G_1$, hence $v_{i - 1}v_{i + 1}$ is an edge in $G_1$. Similarly, $v_{i + 2}v_{i + 4}$
+  is an edge in $G_2$. These two edges ensure that $v_{i + 1}$ and $v_{i + 2}$ also
+  have neighbors in both color classes.
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=60mm]{hamilton}
+    \caption{Coloring a Hamiltonian graph}
+    \label{fig:ham}
+  \end{figure}
 \end{proof}
 
 \begin{remark}
   Whitney \cite{ham1} proved that each triangulated planar graph without separating
   triangles is Hamiltonian. Helden \cite{ham5} strengthened this statement by proving that
-  each triangulated planar graph with at most five separating triangles is Hamiltonian. 
+  each triangulated planar graph with at most five separating triangles is Hamiltonian.
 \end{remark}
+
+\section{Graphs containing a specific 2-factor}
+TODO
 
 \section{Graphs without low-degree vertices}
 TODO (Find the related article for graphs without degree 3 vertices)
