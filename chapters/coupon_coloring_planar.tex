@@ -397,10 +397,50 @@ we can also say something about graphs with another kind of $2$-factors.
   fewer degree $1$ vertices then $T$ has. This contradicts to the choice of $T$.
 \end{proof}
 
-\section{Graphs without low-degree vertices}
-TODO (Find the related article for graphs without degree 3 vertices)
-TODO: hypergraphs
+\section{Connection to hypergraphs}
+TODO
+\begin{definition}
+  Let $H$ be a hypergraph. The incidence graph of $H$ is a bipartite graph with one of
+  its classes corresponding to the vertices of $H$, and the other class corresponding to
+  the hyperedges of $H$. $ve$ is an edge in the incidence graph if and only if the
+  hyperedge $e$ contains vertex $v$ in $H$.
+\end{definition}
+\begin{definition}
+  A hypergraph is called planar, if its incidence graph is planar.
+\end{definition}
+\begin{definition}
+  A vertex coloring of a hypergraph is proper if all its hyperedges contain vertices
+  from both color classes.
+\end{definition}
 
+\begin{thm}
+  Let $H = (V, E)$ be a planar hypergraph with at most $2$ hyperedges of size $2$. Then $H$ has
+  a proper vertex coloring with two colors.
+\end{thm}
+\begin{proof}
+  We may assume that $H$ has exactly $2$ hyperedges of size $2$, as removing hyperedges
+  from a graph does not ruins a proper coloring.
+
+  We define another planar graph based on the incidence graph of $H$ as follows.
+  For each hyperedge $e$, delete the corresponding vertex from the graph, and
+  add edges between the vertices contained in $e$ in a way that it results in a circle.
+  The faces of the resulting graph $G=(V, F)$ correspond to the hyperedges of $H$.
+  (See Figure \ref{fig:hyper}.) After this, triangulate the faces that have more than
+  $3$ vertices.
+
+  Let $c$ be a proper $4$-coloring of the resulting graph.  
+\end{proof}
+TODO
+
+
+It is also worth noting that having total dominating number at least $2$ can be
+translated into a statement about the so-called neighborhood hypergraph. The neighborhood
+hypergraph of $G$ is a hypergraph defined on the vertex set of $G$, where for each vertex
+$v$, there is a hyperedge containing the neighboring vertices of $v$. $G$ has total
+dominating number at least $2$ if and only if the neighborhood hypergraph has a coloring
+such that every hyperedge contains vertices from both color classes. In other words,
+it is equivalent to the statement that the hyperedges possess property $B$. Its relevance
+is that property $B$ has been studied extensively.
 \section{Barnette's conjecture}
 
 A conjecture of Barnette \cite{barnette} is the following.
