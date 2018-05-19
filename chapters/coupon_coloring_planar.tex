@@ -341,10 +341,10 @@ is at least two. We still need a Lemma for proceeding with the proof.
 \end{remark}
 
 With the help of the characterization of $2$-coupon colorable outerplanar graphs,
-we can also say something about graphs with other specific $2$-factors.
+we can also say something about graphs with another kind of $2$-factors.
 
 \begin{claim}
-  Let $G$ be a simple triangulated graph of order at lest $4$. If $G$ has a $2$-factor
+  Let $G$ be a simple triangulated graph of order $n \ge 4$. If $G$ has a $2$-factor
   with none of the cycles having length congruent to $2$ modulo $4$, then the total
   dominating number of $G$ is at least $2$.
 \end{claim}
@@ -352,14 +352,33 @@ we can also say something about graphs with other specific $2$-factors.
 \begin{proof}
   Each cycle splits the plane into two parts. For cycles $C_1$ and $C_2$, we say
   that $C_1 < C_2$, if $C_1$ is inside $C_2$. With this ordering, the cycles of a
-  $2$-factor form a partially ordered set. Let $l$ denote the the maximum
+  $2$-factor form a partially ordered set. Let $l$ denote the maximum
   number of elements in a chain.
 
-  If $l = 1$, then the claim follows from Theorem \ref{thm:outerplanar}, as each cycle
-  forms a $2$-coupon colorable outerplanar graph.
+  Suppose $l = 1$. If each cycle is of length at least $4$, then the claim follows
+  from Theorem \ref{thm:outerplanar}, as each cycle forms a $2$-coupon colorable outerplanar graph.
+  Otherwise the $2$-factor consist of at least $2$ cycles, as $n > 3$. In this case,
+  contract each cycle to a single vertex. $G$ is connected, hence there exists a tree
+  $T$ in the contracted graph. Choose an $r$ root node of $T$. We will color the cycle
+  corresponding to $r$ first, and then iteratively color a child of a cycle that is
+  already colored. We will maintain the property that if both vertices of an edge in $T$
+  is already colored, then they belong to the same color class. We define the
+  coloring as follows.\\
+  If $C_r$ is not of length $3$, then take a $2$-coupon coloring of it. If $C_r$
+  is a triangle, then there exists a vertex $v$ in $C_r$ that is incident to
+  an edge $uv$ of $T$. Color $v$ to black and the others to white. This way the vertices
+  apart from $v$ have colors in both color classes, and $v$ will also have, as $u$
+  must be colored to black. Now let $C$ be the cycle we
+  chose to color next. If it consists of more than $3$ vertices, then we use a
+  $2$-coupon coloring of $C$. We might need to swap the color classes to maintain
+  the property about the edges of $T$. If $C$ is of length $3$, then let $uv$ be the
+  edge of $T$ with $u$ being in an already colored cycle and $v$ being in $C$. Color $v$
+  to the same color as $u$ and color the other two vertices in $C$ with the other color.
 
-  Suppose $l \ge 2$. Let $C_1, \dots C_t$ be the maximal cycles in the poset defined
-  by the $2$-factor. We 
+  Suppose $l \ge 2$. Let $C_{1,1}, \dots C_{1,1_t}$ be the maximal cycles in the
+  poset defined by the $2$-factor, $C_{2,1}, \dots C_{2,2_t}$ be the maximal cycles
+  in the poset without $C_{1,1}, \dots C_{1,1_t}$, and so on, $C_{l,1}, \dots C_{l,l_t}$
+  being the minimal cycles in the poset.
 \end{proof}
 
 \section{Graphs without low-degree vertices}
