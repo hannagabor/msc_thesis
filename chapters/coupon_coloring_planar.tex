@@ -5,8 +5,8 @@ maximal outerplanar graphs first.
 
 \begin{definition}
    A graph is outerplanar if it has a planar drawing for which all vertices
-   belong to the outer face. A maximal outerplanar graph is an outerplanar graph
-   such that adding any edge results in a non-outerplanar graphs.
+   belong to the outer face. A maximal outerplanar graph is a simple outerplanar graph
+   such that adding any edge results in a non-outerplanar graph.
 \end{definition}
 \begin{remark}
   The outer face of a maximal outerplanar graph is a Hamiltonian cycle.
@@ -63,7 +63,7 @@ notions first.
 The key characterization theorem is the following.
 
 \begin{thm}\label{thm:outerplanar}
-  Let $G$ be a maximal outerplanar graph. $G$ admits $2$ disjoint total dominating
+  Let $G$ be a maximal outerplanar graph of order at least $4$. $G$ admits $2$ disjoint total dominating
   sets if and only if $G$ is not a generalized sun graph.
 \end{thm}
 
@@ -293,7 +293,7 @@ is at least two. We still need a Lemma for proceeding with the proof.
   central vertices is $2k + 1$.
 \end{proof}
 
-\begin{thm}
+\begin{thm} \label{thm:ham}
   Every triangulated graph with a Hamiltonian circle admits $2$ disjoint
   dominating sets.
 \end{thm}
@@ -340,45 +340,61 @@ is at least two. We still need a Lemma for proceeding with the proof.
   each triangulated planar graph with at most five separating triangles is Hamiltonian.
 \end{remark}
 
-With the help of the characterization of $2$-coupon colorable outerplanar graphs,
+With the help of these theorems,
 we can also say something about graphs with another kind of $2$-factors.
 
 \begin{claim}
   Let $G$ be a simple triangulated graph of order $n \ge 4$. If $G$ has a $2$-factor
-  with none of the cycles having length congruent to $2$ modulo $4$, then the total
+  with none of its cycles having length congruent to $2$ modulo $4$, then the total
   dominating number of $G$ is at least $2$.
 \end{claim}
 
 \begin{proof}
-  Each cycle splits the plane into two parts. For cycles $C_1$ and $C_2$, we say
-  that $C_1 < C_2$, if $C_1$ is inside $C_2$. With this ordering, the cycles of a
-  $2$-factor form a partially ordered set. Let $l$ denote the maximum
-  number of elements in a chain.
+  If the $2$-factor consists only of one cycle, then Theorem \ref{thm:ham} proves the
+  claim. Suppose that there are at least two cycles in the $2$-factor. First note that
+  by alternating colors in pairs, any cycle of length not congruent to $2$ modulo $4$
+  can be colored in a way, such that there is at most one vertex with a monochromatic neighborhood.
+  (See Figures \ref{fig:4k+1}, \ref{fig:4k+3}.)
 
-  Suppose $l = 1$. If each cycle is of length at least $4$, then the claim follows
-  from Theorem \ref{thm:outerplanar}, as each cycle forms a $2$-coupon colorable outerplanar graph.
-  Otherwise the $2$-factor consist of at least $2$ cycles, as $n > 3$. In this case,
-  contract each cycle to a single vertex. $G$ is connected, hence there exists a tree
-  $T$ in the contracted graph. Choose an $r$ root node of $T$. We will color the cycle
-  corresponding to $r$ first, and then iteratively color a child of a cycle that is
-  already colored. We will maintain the property that if both vertices of an edge in $T$
-  is already colored, then they belong to the same color class. We define the
-  coloring as follows.\\
-  If $C_r$ is not of length $3$, then take a $2$-coupon coloring of it. If $C_r$
-  is a triangle, then there exists a vertex $v$ in $C_r$ that is incident to
-  an edge $uv$ of $T$. Color $v$ to black and the others to white. This way the vertices
-  apart from $v$ have colors in both color classes, and $v$ will also have, as $u$
-  must be colored to black. Now let $C$ be the cycle we
-  chose to color next. If it consists of more than $3$ vertices, then we use a
-  $2$-coupon coloring of $C$. We might need to swap the color classes to maintain
-  the property about the edges of $T$. If $C$ is of length $3$, then let $uv$ be the
-  edge of $T$ with $u$ being in an already colored cycle and $v$ being in $C$. Color $v$
-  to the same color as $u$ and color the other two vertices in $C$ with the other color.
+  Contract each cycle to a single vertex. $G$ is connected, hence there exists a tree $T$
+  in the contracted graph. Choose $T$ to have a minimal number of degree $1$ vertices.
+  Let $E(T)$ denote the edges of the original graph that were mapped
+  to $T$. We show a $2$-coupon coloring in the subgraph defined by the union of the $2$-factor
+  and $E(T)$. Choose a root node $r$ from the degree $1$ vertices in $T$.
 
-  Suppose $l \ge 2$. Let $C_{1,1}, \dots C_{1,1_t}$ be the maximal cycles in the
-  poset defined by the $2$-factor, $C_{2,1}, \dots C_{2,2_t}$ be the maximal cycles
-  in the poset without $C_{1,1}, \dots C_{1,1_t}$, and so on, $C_{l,1}, \dots C_{l,l_t}$
-  being the minimal cycles in the poset.
+  We color the cycle $C_0$
+  corresponding to $r$ first. Choose a vertex $v$ in $C_0$, such that there exists a
+  $uv$ edge in $E(T)$. We color $C_0$ such that only $v$ may have a monochromatic
+  neighborhood and assign $u$ the missing color.
+
+  After this, we iteratively
+  color a child of a cycle that is already colored.
+  We start by coloring cycles that do not
+  correspond to leaves in $T$. Suppose that $C_1$ is a cycle like that, let $C_2$
+  be a child of $C_1$, and $v_1v_2$
+  be the edge in $E(T)$ such that $v_1 \in C_1$ and $v_2 \in C_2$. Let $c_1$ be a coloring of
+  $C_1$ such that only $v_1$ may have a monochromatic neighborhood. There might be
+  a vertex (but only one) in $C_1$ that already has a color, so flip the colors of $c_1$ if
+  necessary. Color $v_2$ in a way that provides $v_1$ the missing color.
+
+  Now we
+  color cycles that correspond to leaves, but have at least $4$ vertices. Let $C_l$ be a
+  cycle like that. By Theorem \ref{thm:outerplanar} there
+  exists a $2$-coupon coloring $c_l$ of $C_l$. Again, if there is a vertex in $C_l$ that
+  already has a color, then we might need to flip the colors of $c_l$.
+
+  Finally, we need to
+  color cycles corresponding to leaves of $T$ and having only $3$ vertices. Let $u_lv_lw_l$ be
+  a cycle like that, where $v_l$ is the only vertex that may already have a color. Suppose it
+  is colored to black. There exists a face $v_lw_lx_l$ where $x_l \neq u_l$.
+  If $x_l$ is colored to black, then color $w_l$ and $u_l$ to white. If $x_l$ is colored
+  to white, then color $w_l$ to white, and $u_l$ to black. The only remaining case is
+  when $x_l$ does not have a color yet. In this case, there must be a face $x_ly_lz_l$
+  corresponding to a leaf of $T$. These two leaves have a closest common ancestor
+  $t$. $t$ is of degree at least $2$ in $T$, hence $t \neq r$, so $t$ must have degree
+  at least $3$. By adding the edge corresponding to $v_lx_l$ to $T$ and removing
+  the first edge of the $tv_l$ path, we would get a tree $T'$, where $T'$ would have
+  fewer degree $1$ vertices then $T$ has. This contradicts to the choice of $T$.
 \end{proof}
 
 \section{Graphs without low-degree vertices}
