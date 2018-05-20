@@ -398,7 +398,9 @@ we can also say something about graphs with another kind of $2$-factors.
 \end{proof}
 
 \section{Graphs without low-degree vertices}
-With the help of hypergraphs, we TODO
+In this section we will show that the Goddard-Henning conjecture holds for graphs
+without too many low-degree vertices. For proving this, we will use a theorem
+about coloring hypergraphs. First, let us introduce the necessary definitions.
 
 \begin{definition}
   Let $H$ be a hypergraph. The incidence graph of $H$ is a bipartite graph with one of
@@ -413,6 +415,8 @@ With the help of hypergraphs, we TODO
   A vertex coloring of a hypergraph is proper if all its hyperedges contain vertices
   from both color classes.
 \end{definition}
+
+The following theorem is from Zdenek Dvorák, Daniel Král \cite{hypergraph}.
 
 \begin{thm} \label{thm:hyper}
   Let $H = (V, E)$ be a planar hypergraph with at most $2$ hyperedges of size $2$. Then $H$ has
@@ -442,7 +446,7 @@ With the help of hypergraphs, we TODO
   By permuting the color classes if necessary, we may assume the followings.
   \begin{enumerate}
     \item If the two hyperedges of size $2$ are not disjoint, i.e. they are $\{u, v\}$ and
-      $\{u, w\}$, then $c_4(u) 1$, and $c_4(v), c_4(w) \in \{3, 4\}$.
+      $\{u, w\}$, then $c_4(u) = 1$, and $c_4(v), c_4(w) \in \{3, 4\}$.
     \item If the two hyperedges of size $2$ are disjoint, i.e. they are $\{u, v\}$ and
       $\{x, y\}$, then $c_4(u), c_4(x) \in \{1, 2\}$ and $c_4(v), c_4(y) \in \{3, 4\}$.
   \end{enumerate}
@@ -460,6 +464,8 @@ With the help of hypergraphs, we TODO
   of size at least $3$ has vertices from $3$ or $4$ color classes.
 \end{proof}
 
+Now we are ready to prove our claim about graphs without too many low-degree vertices.
+
 \begin{claim}
   Let $G$ be a simple triangulated graph. If there are at most two vertices of degree
   at most $4$, then $G$ has a $2$-coupon coloring.
@@ -469,14 +475,14 @@ With the help of hypergraphs, we TODO
   Thus, by Petersen's theorem there exists a perfect matching $M$ in $G^*$. By deleting
   the edges corresponding to $M$ from $G$, we get a graph $G'$ such that all its faces contains
   $4$ vertices. We call such graphs quadrangulated. Note, that for each vertex $v$,
-  we deleted at most the half of the vertices starting from $v$, thus there are at most
+  we deleted at most half of the vertices starting from $v$, thus there are at most
   two vertices in $G'$ of degree $2$ and none of the vertices has less than $2$ neighbors.
 
   By Lemma \ref{l:bipartite}, $G'$
   is a bipartite graph. Let $U$ and $V$ be the two classes of $G'$. $G'$ is the incidence
   graph of two hypergraphs: let $H_1$ be the hypergraph defined on the vertex set
   $U$ with hyperedges $V$, and $H_2$ be the hypergraph defined on the vertex set $V$
-  with hyperedges $U$. By Theorem \ref{thm:hyper} $H_1$ and $H_2$ has proper $2$-colorings.
+  with hyperedges $U$. By Theorem \ref{thm:hyper}, $H_1$ and $H_2$ has proper $2$-colorings.
   Take the union of these colorings $c$. I.e. on the vertices of $U$, $c$ is defined
   by a proper coloring of $H_1$, whereas on the vertices of $V$, $c$ is defined
   by a proper coloring of $H_2$. $c$ is a $2$-coupon coloring of $G'$.
@@ -493,20 +499,23 @@ With the help of hypergraphs, we TODO
   \label{fig:quad}
 \end{figure}
 
+Goddard and Henning \cite{gh} conjectured the following stronger statement about
+planar triangulations without degree $3$ vertices.
+
 \begin{conj}
-  If $G$ is a simple triangulated graph with all the vertices of degree at least
+  If $G$ is a simple triangulated graph with all its vertices having degree at least
   $4$, then $G$ admits three disjoint total dominating sets.
 \end{conj}
-
 
 It is also worth noting that having total dominating number at least $2$ can be
 translated into a statement about the so-called neighborhood hypergraph. The neighborhood
 hypergraph of $G$ is a hypergraph defined on the vertex set of $G$, where for each vertex
 $v$, there is a hyperedge containing the neighboring vertices of $v$. $G$ has total
-dominating number at least $2$ if and only if the neighborhood hypergraph has a coloring
-such that every hyperedge contains vertices from both color classes. In other words,
+dominating number at least $2$ if and only if the neighborhood hypergraph has a
+proper $2$-coloring. In other words,
 it is equivalent to the statement that the hyperedges possess property $B$. Its relevance
 is that property $B$ has been studied extensively.
+
 \section{Barnette's conjecture}
 
 A conjecture of Barnette \cite{barnette} is the following.
