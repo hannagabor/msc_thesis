@@ -1,5 +1,5 @@
 \section{Outerplanar and Hamiltonian graphs}
-Zoltán Lóránt Nagy \cite{outerplanar} showed that the conjecture of Goddard and Henning holds for
+Nagy \cite{outerplanar} showed that the conjecture of Goddard and Henning holds for
 Hamiltonian graphs. For this, he characterized the $2$-coupon colorable
 maximal outerplanar graphs first.
 
@@ -12,10 +12,10 @@ maximal outerplanar graphs first.
   The outer face of a maximal outerplanar graph is a Hamiltonian cycle.
 \end{remark}
 
-In order to provide the mentioned characterization we need to introduce a few
+In order to provide the mentioned characterization, we need to introduce a few
 notions first.
 \begin{definition}
-  Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The $M(G)$ sun graph
+  Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The sun graph $M(G)$
   of $G$ is obtained by gluing a triangle to each edge of the outer face.
 \end{definition}
 \begin{remark}
@@ -30,7 +30,7 @@ notions first.
 \end{remark}
 \begin{definition}
   A vertex $v$ of a maximal outerplanar graph is called a central vertex if the
-  following $3$ conditions hold.
+  following conditions hold.
   \begin{enumerate}
     \item $deg(v) \ge 3$
     \item Every neighbor of $v$ has degree at least $3$.
@@ -44,11 +44,11 @@ notions first.
 \end{claim}
 \begin{proof}
   Suppose there exists an $uv$ edge on the outer face such that $u$ and $v$ are
-  central vertices. Because of the maximality of the graph there exists a $uvw$
+  central vertices. Because of the maximality of the graph, there exists a $uvw$
   triangle. Index the vertices along the outer face form $v = v_1$ to $u = v_{n}$.
-  Suppose $w = v_i$. From the centrality of $v$ follows that $i \equiv 2\
+  Suppose $w = v_i$. From the centrality of $v$ it follows that $i \equiv 2\
   (\textrm{mod}\ 4)$. On the other hand, $u$ is also a central vertex, hence
-  $i \equiv 1\ (\textrm{mod}\ 4)$.
+  $i \equiv 1\ (\textrm{mod}\ 4)$, a contradiction.
 \end{proof}
 \begin{definition}
   A generalized sun graph is a maximal outerplanar graph of order
@@ -60,18 +60,18 @@ notions first.
   central or has degree $2$.
 \end{remark}
 
-The key characterization theorem is the following.
+The key theorem is the following.
 
 \begin{thm}\label{thm:outerplanar}
   Let $G$ be a maximal outerplanar graph of order at least $4$. $G$ admits $2$ disjoint total dominating
   sets if and only if $G$ is not a generalized sun graph.
 \end{thm}
 
-For proving this theorem we need some observations about generalized sun graphs.
+For proving this theorem, we need some observations about generalized sun graphs.
 
 \begin{definition}
   Let $G$ be a maximal outerplanar graph and $i \ge 2$. We say that a $uv$ edge is a chord
-  of length $i$, if there is a $uv$ path of length $i$ on the outer face. (This means
+  of length $i$ if there is a $uv$ path of length $i$ on the outer face. (This means
   that if $uv$ is a chord of length $i$, then it is also a chord of length $n - i$.)
 \end{definition}
 
@@ -79,7 +79,7 @@ For proving this theorem we need some observations about generalized sun graphs.
   A maximal outerplanar graph of order $n \ge 3$ has a chord of length $2$.
 \end{lemma}
 \begin{proof}
-  It is trivial for $n = 3$. Suppose $n \ge 4$ and
+  The statement is trivial for $n = 3$. Suppose that $n \ge 4$ and
   let $uv$ be a chord of minimal length. By
   the maximality of the graph there exists a $uvw$ face, where $w$ is on the shorter
   $uv$ path of the outer face. If $uv$ is not a chord of length $2$, then $uw$ or $vw$
@@ -109,13 +109,13 @@ For proving this theorem we need some observations about generalized sun graphs.
 \begin{proof}
   For $n \le 11$, the statement is easy to verify.
 
-  For $n > 11$ delete the faces with $2$ common edges with the unbounded face. Then in the remaining
+  For $n > 11$ delete the faces sharing $2$ common edges with the unbounded face. Then in the remaining
   graph $G_1$ delete the faces that now have $2$ common edges with the unbounded face.
 
   We claim that the remaining graph $G_2$ is not empty. $G$
   has $m = \frac{3(f - 1) + n}{2}$ edges, where $f$ denotes the number of faces.
-  Then by Euler's formula $n = f + 1$, hence $G$ has at least $11$ faces. In the
-  first deleting step at most $n/2$ faces are deleted, and in the second step at most
+  Then, by Euler's formula, $n = f + 1$, hence $G$ has at least $11$ faces. In the
+  first step at most $n/2$ faces are deleted, and in the second step at most
   $|G_1|/2$ faces are deleted. Thus at most $3(f + 1) / 4$ faces are deleted.
   $3(f + 1) / 4 \le f - 2$ if $f \ge 11$.
 
@@ -128,7 +128,7 @@ For proving this theorem we need some observations about generalized sun graphs.
 
 \begin{proof}[Proof of Theorem \ref{thm:outerplanar}]
   First we show that generalized sun graphs do not have $2$ disjoint total
-  dominating sets. The proof goes by induction on the $n = 4k + 2$ number of vertices.
+  dominating sets. The proof goes by induction on the number of vertices $n = 4k + 2$.
 
   For $k = 1$ there is only one generalized sun graph and it does not admit $2$
   disjoint total dominating sets. (Shown on figure \ref{fig:sungraph}.)
@@ -185,12 +185,13 @@ For proving this theorem we need some observations about generalized sun graphs.
   \end{figure}
 
   Suppose $n \equiv 2\ (\textrm{mod}\ 4)$. We show by induction that if $G$ does not have $2$
-  disjoint total dominating sets, then it is a generalized sun graph.\\
-  The case $k = 1$ is easy to check.\\
+  disjoint total dominating sets, then it is a generalized sun graph. The case $k = 1$ is easy to check.
+
   If $G$ has a chord $uv$ of length $3$, then $uv$ divides the graph into two parts:
   $G_1$ of order $4$ and $G_2$ of order $4k$. By alternating colors in pairs one can obtain
   $2$-coupon colorings of $G_1$ and $G_2$, where both $u$ and $v$ are colored to black
-  in both graphs.\\
+  in both graphs.
+
   If $G$ does not have a chord of length $3$, then by Lemma \ref{lem:3-4_chord}
   there exists a chord $uv$ of length $4$. Then $uv$ divides $G$ into two graphs.
   One of them must be the maximal outerplanar graph $G_5$ of order $5$. $u$ and $v$
@@ -200,7 +201,8 @@ For proving this theorem we need some observations about generalized sun graphs.
   Consider the face $uvw$, where $w$ is not in $G_5$. The deletion of this face
   divides $G$ into $3$ graphs: $G'$, $G''$ and $G_5$. (It might be that $G'$ or $G''$ is
   degenerated in the sense that it consists only of one edge.) Let $G'$ be the graph containing
-  $u$ and $w$. Without loss of generality we may assume that $|G''| \le |G'|$.\\
+  $u$ and $w$. Without loss of generality we may assume that $|G''| \le |G'|$.
+  
   Choose the $uv$ chord in a way, such that $|G'|$ is minimal. We may assume that
   $G'$ has at most $3$ faces by Lemma \ref{lem:del_face}, and thus $|G'| \le 5$.
   Thus, there are $4$ cases depending on the size of $G'$.
