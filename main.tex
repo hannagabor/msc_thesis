@@ -17,14 +17,19 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\newtheorem{thm}{Theorem}
-\newtheorem{definition}[thm]{Definition}
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{conj}[thm]{Conjecture}
-\newtheorem{remark}[thm]{Remark}
-\newtheorem{claim}[thm]{Claim}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{guess}[thm]{Statement}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+% \usepackage{algcompatible}
+% \usepackage[compatible]{algpseudocode}
+
+\newtheorem{thm}[algorithm]{Theorem}
+\newtheorem{definition}[algorithm]{Definition}
+\newtheorem{cor}[algorithm]{Corollary}
+\newtheorem{conj}[algorithm]{Conjecture}
+\newtheorem{remark}[algorithm]{Remark}
+\newtheorem{claim}[algorithm]{Claim}
+\newtheorem{lemma}[algorithm]{Lemma}
+\newtheorem{guess}[algorithm]{Statement}
 
 
 \begin{document}
@@ -46,7 +51,8 @@
 \chapter{Proofs for special cases of the Goddard-Henning conjecture}
 \input{chapters/coupon_coloring_planar}
 
-\chapter{Algorithm for generating all planar triangulations} (TODO (or delete))
+\chapter{Algorithm for generating all planar triangulations}
+\input{chapters/algorithm}
 
 \input{bib}
 

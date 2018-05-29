@@ -168,7 +168,7 @@ For proving this theorem, we need some observations about generalized sun graphs
   start the coloring from the right vertex. By lemma \ref{lem:two_chord} there
   exists a chord $uv$ of length $2$. Alternating colors in pairs starting from $v$
   does the job. (See Figure \ref{fig:4k+1}.)
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=50mm]{4k+1}
     \caption{Coloring an outerplanar graph of order $4k + 1$}
@@ -177,7 +177,7 @@ For proving this theorem, we need some observations about generalized sun graphs
 
   If $n \equiv 3\ (\textrm{mod}\ 4)$, then start the coloring from a vertex next
   to $v$. (See Figure \ref{fig:4k+3}.)
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=50mm]{4k+3}
     \caption{Coloring an outerplanar graph of order $4k + 3$}
@@ -202,7 +202,7 @@ For proving this theorem, we need some observations about generalized sun graphs
   divides $G$ into $3$ graphs: $G'$, $G''$ and $G_5$. (It might be that $G'$ or $G''$ is
   degenerated in the sense that it consists only of one edge.) Let $G'$ be the graph containing
   $u$ and $w$. Without loss of generality we may assume that $|G''| \le |G'|$.
-  
+
   Choose the $uv$ chord in a way, such that $|G'|$ is minimal. We may assume that
   $G'$ has at most $3$ faces by Lemma \ref{lem:del_face}, and thus $|G'| \le 5$.
   Thus, there are $4$ cases depending on the size of $G'$.
@@ -215,7 +215,7 @@ For proving this theorem, we need some observations about generalized sun graphs
       If $v$ is a degree $2$ or central vertex in $G''$, then color the vertices of $G''$ by
       alternating colors in pairs, starting with white from $w$, but color $v$ to
       black. Let $x$ denote the vertex before $v$. (See Figure \ref{fig:case1}.)
-      \begin{figure}[h]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=60mm]{case1}
         \caption{Case $1$}
@@ -234,7 +234,7 @@ For proving this theorem, we need some observations about generalized sun graphs
       by deleting $G_5$ and identifying $uw$ with $vw$. (See \ref{fig:case2})
       $G$ is $2$-coupon colorable if and only if $H$ is $2$-coupon colorable. On the other hand,
       $G$ is a generalized sun graph if and only if $H$ is a generalized sun graph.
-      \begin{figure}[h]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=150mm]{case2}
         \caption{Case $2$: $G$ (left) and $H$ (right)}
@@ -247,7 +247,7 @@ For proving this theorem, we need some observations about generalized sun graphs
       find a chord of length $3$. In a $2$-coupon coloring $u$ and $w$ must have
       the same color. Let $H$ be the graph obtained from $G$ by deleting $G_5$
       and identifying $uw$ with $vw$. (See \ref{fig:case4})
-      \begin{figure}[h]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=150mm]{case4}
         \caption{Case $4$: $G$ (left) and $H$ (right)}
@@ -328,7 +328,7 @@ is at least two. We still need a Lemma for proceeding with the proof.
   in $G_1$, hence $v_{i - 1}v_{i + 1}$ is an edge in $G_1$. Similarly, $v_{i + 2}v_{i + 4}$
   is an edge in $G_2$. These two edges ensure that $v_{i + 1}$ and $v_{i + 2}$ also
   have neighbors in both color classes.
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=60mm]{hamilton}
     \caption{Coloring a Hamiltonian graph}
@@ -436,7 +436,7 @@ The following theorem is from Zdenek Dvorák, Daniel Král \cite{hypergraph}.
   (See Figure \ref{fig:hyper}.) After this, triangulate the faces that have more than
   $3$ vertices.
 
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=150mm]{hypergraph}
     \caption{A hypergraph (a), its incidence graph (b), a planar embedding of the
@@ -494,7 +494,7 @@ Now we are ready to prove our claim about graphs without too many low-degree ver
   It is not true that every simple quadrangulated graph has a $2$-coupon coloring.
   See Figure \ref{fig:quad} for an example.
 \end{remark}
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=60mm]{quad}
   \caption{A quadrangulated graph without two disjoint dominating sets}
@@ -522,13 +522,27 @@ is that property $B$ has been studied extensively.
 
 A conjecture of Barnette \cite{barnette} is the following.
 \begin{conj}
-  Every $3$-connected cubic planar bipartite graph is Hamiltonian.
+  Every $3$-connected $3$-regular bipartite planar graph is Hamiltonian.
 \end{conj}
 
-By \ref{ham_dual} if the Barnette-conjecture holds, then the Goddard-Henning
-conjecture also holds for Eulerian triangulations.
+By Claim \ref{ham_dual} and Lemma \ref{l:bipartite}, if Barnette's conjecture holds, then the Goddard-Henning
+conjecture also holds for Eulerian triangulations. In this section, we give a brief
+overview of its history and show two equivalent forms of the conjecture.
 
-Alt, Payne, Schmidt and Wood \cite{spec_barnette} proved that the conjecture holds
-for graphs, where the dual is an Eulerian planar triangulation and has a special $3$-coloring.
+Barnette's conjecture originates from Tait's conjecture. Tait \cite{tait} conjectured
+that every $3$-connected $3$-regular planar graph is Hamiltonian. This is stronger
+than Barnette's conjecture, as it does not requires the graph to be bipartite. Tutte \cite{tutte} constructed a
+counterexample for Tait's conjecture, and conjectured a similar statement. Namely, that every
+$3$-connected $3$-regular bipartite graph is Hamiltonian. Again, this is stronger than
+Barnette's conjecture, as it does not require the graph to be planar. Tutte's conjecture was
+also disproven: Horton \cite{horton} found a counterexample.
 
-TODO
+Kelmans \cite{kelmans} showed that Barnette's conjecture is equivalent to the statement that
+for every two edges on the same face of a $3$-connected $3$-regular bipartite planar graph,
+there exists a Hamiltonian cycle containing both edges. Note, that Barnette's conjecture
+trivially follows from this statement.
+
+Florek \cite{florek} showed that Barnette's conjecture can be rephrased using the dual graph.
+Namely, the following statement is equivalent with Barnette's conjecture. The vertices
+of the dual of every $3$-connected $3$-regular bipartite planar graph can be partitioned
+into two subsets whose induced subgraphs are trees.

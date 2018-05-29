@@ -16,7 +16,7 @@ A conjecture of Goddard and Henning \cite{gh} is the following.
   contradiction, since $A$, $C$ and $E$ form a triangle.
 \end{remark}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=70mm]{parallel}
   \caption{Simplicity is necessary}
@@ -145,8 +145,8 @@ statements are not true, they can be useful for proving the conjecture in specia
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=70mm]{wheel}
-  \caption{The green edges form the wheel defined by $A$ }
+  \includegraphics[width=75mm]{wheel}
+  \caption{The dashed edges form the wheel defined by $v$ }
   \label{fig:wheel}
 \end{figure}
 
@@ -350,53 +350,53 @@ The following figure summarizes the statements of this section. For this, let $G
 triangulated planar graph of order at least $4$ and let $G^*$
 denote its dual. Note, that by Claim \ref{c:dual}, $G^*$ is a $3$-regular $2$-edge-connected
 planar graph of order at least $4$.
-
+\vspace*{\fill}
 \begin{center}
   \begin{tikzpicture}
   [block/.style ={rectangle, draw=black, thick,
-    align=flush center, rounded corners,
+    align=flush center, rounded corners, outer sep=5,
     minimum height=4em},
   ]
-  \node [block, double, double distance=1pt, text width=50mm] (conj){
+  \node [block, double, double distance=1pt, text width=45mm] (conj){
     $G$ has total domatic number at least $2$. (Conjecture \ref{conj})
   };
-  \node [block, text width=50mm] (bipartite)
-    [below=15mm of conj]{
+  \node [block, text width=45mm] (bipartite)
+    [below=10mm of conj]{
     There exists a bipartite $H = (V, F)$ subgraph of $G$ such that $F$ contains at
     least one edge from each wheel of $G$. (Statement \ref{s:bipartite})
   };
-  \node [block, text width=50mm] (forest)
-    [left=15mm of bipartite]{
+  \node [block, text width=45mm] (forest)
+    [left=10mm of bipartite]{
     There exists a forest in $G$ containing at least one edge from each wheel.
     (Statement \ref{s:forest})
   };
-  \node [block, text width=50mm] (no_iso)
-    [right=15mm of bipartite]{
+  \node [block, text width=45mm] (no_iso)
+    [right=10mm of bipartite]{
     There exists a subgraph $H' = (V, F')$ of $G$ such that $F'$ contains exactly
     $1$ edge from each face of $G$ and $H'$ does not have any isolated vertices.
     (Statement \ref{s:no_iso})
   };
-  \node [block, text width=50mm] (dual)
-    [below=15mm of bipartite]{
+  \node [block, text width=45mm] (dual)
+    [below=10mm of bipartite]{
     There exists a subgraph $H^* = (V^*, F^*)$ in $G^*$ that does not contain
     any odd cut of $G^*$, and for every face of $G^*$, $H^*$ contains an edge
     $e$ leaving that face.
     (Statement \ref{s:dual})
   };
-  \node [block, text width=50mm] (dual_comp)
-    [below=15mm of dual]{
+  \node [block, text width=45mm] (dual_comp)
+    [below=10mm of dual]{
     There exists a subgraph $H^*$ of $G^*$ that intersects every odd cut of $G^*$ and for
     every face $f$ in $G^*$, $H^*$ does not contain all the edges leaving $f$.
     (Statement \ref{s:dual_comp})
   };
-  \node [block, text width=50mm] (2-factor)
-    [left=15mm of dual]{
+  \node [block, text width=45mm] (2-factor)
+    [left=10mm of dual]{
       There exists a $2$-factor in $G^*$ that does not contain any of the faces of $G^*$.
     (Statement \ref{s:2-factor})
   };
 
-  \node [block, text width=50mm] (matching)
-    [below=15mm of 2-factor]{
+  \node [block, text width=45mm] (matching)
+    [below=10mm of 2-factor]{
     There exists a perfect matching in $G^*$, containing at least one edge from each face.
     (Statement \ref{s:matching})
   };
@@ -410,3 +410,4 @@ planar graph of order at least $4$.
   \draw[<->, ultra thick] (2-factor) -- (matching);
   \end{tikzpicture}
 \end{center}
+\vspace*{\fill}
