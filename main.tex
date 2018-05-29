@@ -26,6 +26,7 @@
 \newtheorem{claim}[algorithm]{Claim}
 \newtheorem{lemma}[algorithm]{Lemma}
 \newtheorem{guess}[algorithm]{Statement}
+\newtheorem*{conj*}{Conjecture}
 
 \begin{document}
 \input{titlepage}
@@ -37,16 +38,16 @@
 \chapter*{Introduction}
 \input{chapters/introduction}
 
-\chapter{Coupon coloring in arbitrary graphs}
+\chapter{Coupon coloring in arbitrary graphs} \label{ch:arbitrary}
 \input{chapters/coupon_coloring_arbitrary}
 
-\chapter{Introducing the Goddard-Henning conjecture}
+\chapter{Introducing the Goddard-Henning conjecture} \label{ch:reformulating}
 \input{chapters/goddard-henning}
 
-\chapter{Proofs for special cases of the Goddard-Henning conjecture}
+\chapter{Proofs for special cases of the Goddard-Henning conjecture} \label{ch:spec}
 \input{chapters/coupon_coloring_planar}
 
-\chapter{Algorithm for generating all planar triangulations}
+\chapter{Algorithm for generating all planar triangulations} \label{ch:alg}
 \input{chapters/algorithm}
 
 \input{bib}
