@@ -1,21 +1,21 @@
 \section{Outerplanar and Hamiltonian graphs}
-Zoltán Lóránt Nagy \cite{outerplanar} showed that the conjecture of Goddard and Henning holds for
+Nagy \cite{outerplanar} showed that the conjecture of Goddard and Henning holds for
 Hamiltonian graphs. For this, he characterized the $2$-coupon colorable
-maximal outerplanar graphs first.
+maximal \emph{outerplanar} graphs first.
 
 \begin{definition}
-   A graph is outerplanar if it has a planar drawing for which all vertices
-   belong to the outer face. A maximal outerplanar graph is a simple outerplanar graph
+   A graph is \emph{outerplanar} if it has a planar drawing for which all vertices
+   belong to the outer face. A \emph{maximal outerplanar} graph is a simple outerplanar graph
    such that adding any edge results in a non-outerplanar graph.
 \end{definition}
 \begin{remark}
   The outer face of a maximal outerplanar graph is a Hamiltonian cycle.
 \end{remark}
 
-In order to provide the mentioned characterization we need to introduce a few
+In order to provide the mentioned characterization, we need to introduce a few
 notions first.
 \begin{definition}
-  Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The $M(G)$ sun graph
+  Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The \emph{sun graph} $M(G)$
   of $G$ is obtained by gluing a triangle to each edge of the outer face.
 \end{definition}
 \begin{remark}
@@ -29,8 +29,8 @@ notions first.
   the sun graph of the $BDE$ triangle.
 \end{remark}
 \begin{definition}
-  A vertex $v$ of a maximal outerplanar graph is called a central vertex if the
-  following $3$ conditions hold.
+  A vertex $v$ of a maximal outerplanar graph is called a \emph{central vertex} if the
+  following conditions hold.
   \begin{enumerate}
     \item $deg(v) \ge 3$
     \item Every neighbor of $v$ has degree at least $3$.
@@ -44,14 +44,14 @@ notions first.
 \end{claim}
 \begin{proof}
   Suppose there exists an $uv$ edge on the outer face such that $u$ and $v$ are
-  central vertices. Because of the maximality of the graph there exists a $uvw$
+  central vertices. Because of the maximality of the graph, there exists a $uvw$
   triangle. Index the vertices along the outer face form $v = v_1$ to $u = v_{n}$.
-  Suppose $w = v_i$. From the centrality of $v$ follows that $i \equiv 2\
+  Suppose $w = v_i$. From the centrality of $v$ it follows that $i \equiv 2\
   (\textrm{mod}\ 4)$. On the other hand, $u$ is also a central vertex, hence
-  $i \equiv 1\ (\textrm{mod}\ 4)$.
+  $i \equiv 1\ (\textrm{mod}\ 4)$, a contradiction.
 \end{proof}
 \begin{definition}
-  A generalized sun graph is a maximal outerplanar graph of order
+  A \emph{generalized sun graph} is a maximal outerplanar graph of order
   $n \equiv 2\ (\textrm{mod}\ 4)$ such that the number of
   degree $2$ vertices plus the number of central vertices is $n/2$.
 \end{definition}
@@ -60,18 +60,18 @@ notions first.
   central or has degree $2$.
 \end{remark}
 
-The key characterization theorem is the following.
+The key theorem is the following.
 
 \begin{thm}\label{thm:outerplanar}
   Let $G$ be a maximal outerplanar graph of order at least $4$. $G$ admits $2$ disjoint total dominating
   sets if and only if $G$ is not a generalized sun graph.
 \end{thm}
 
-For proving this theorem we need some observations about generalized sun graphs.
+For proving this theorem, we need some observations about generalized sun graphs.
 
 \begin{definition}
-  Let $G$ be a maximal outerplanar graph and $i \ge 2$. We say that a $uv$ edge is a chord
-  of length $i$, if there is a $uv$ path of length $i$ on the outer face. (This means
+  Let $G$ be a maximal outerplanar graph and $i \ge 2$. We say that a $uv$ edge is a \emph{chord}
+  of length $i$ if there is a $uv$ path of length $i$ on the outer face. (This means
   that if $uv$ is a chord of length $i$, then it is also a chord of length $n - i$.)
 \end{definition}
 
@@ -79,7 +79,7 @@ For proving this theorem we need some observations about generalized sun graphs.
   A maximal outerplanar graph of order $n \ge 3$ has a chord of length $2$.
 \end{lemma}
 \begin{proof}
-  It is trivial for $n = 3$. Suppose $n \ge 4$ and
+  The statement is trivial for $n = 3$. Suppose that $n \ge 4$ and
   let $uv$ be a chord of minimal length. By
   the maximality of the graph there exists a $uvw$ face, where $w$ is on the shorter
   $uv$ path of the outer face. If $uv$ is not a chord of length $2$, then $uw$ or $vw$
@@ -109,13 +109,13 @@ For proving this theorem we need some observations about generalized sun graphs.
 \begin{proof}
   For $n \le 11$, the statement is easy to verify.
 
-  For $n > 11$ delete the faces with $2$ common edges with the unbounded face. Then in the remaining
+  For $n > 11$ delete the faces sharing $2$ common edges with the unbounded face. Then in the remaining
   graph $G_1$ delete the faces that now have $2$ common edges with the unbounded face.
 
   We claim that the remaining graph $G_2$ is not empty. $G$
   has $m = \frac{3(f - 1) + n}{2}$ edges, where $f$ denotes the number of faces.
-  Then by Euler's formula $n = f + 1$, hence $G$ has at least $11$ faces. In the
-  first deleting step at most $n/2$ faces are deleted, and in the second step at most
+  Then, by Euler's formula, $n = f + 1$, hence $G$ has at least $11$ faces. In the
+  first step at most $n/2$ faces are deleted, and in the second step at most
   $|G_1|/2$ faces are deleted. Thus at most $3(f + 1) / 4$ faces are deleted.
   $3(f + 1) / 4 \le f - 2$ if $f \ge 11$.
 
@@ -128,7 +128,7 @@ For proving this theorem we need some observations about generalized sun graphs.
 
 \begin{proof}[Proof of Theorem \ref{thm:outerplanar}]
   First we show that generalized sun graphs do not have $2$ disjoint total
-  dominating sets. The proof goes by induction on the $n = 4k + 2$ number of vertices.
+  dominating sets. The proof goes by induction on the number of vertices $n = 4k + 2$.
 
   For $k = 1$ there is only one generalized sun graph and it does not admit $2$
   disjoint total dominating sets. (Shown on figure \ref{fig:sungraph}.)
@@ -168,7 +168,7 @@ For proving this theorem we need some observations about generalized sun graphs.
   start the coloring from the right vertex. By lemma \ref{lem:two_chord} there
   exists a chord $uv$ of length $2$. Alternating colors in pairs starting from $v$
   does the job. (See Figure \ref{fig:4k+1}.)
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=50mm]{4k+1}
     \caption{Coloring an outerplanar graph of order $4k + 1$}
@@ -177,7 +177,7 @@ For proving this theorem we need some observations about generalized sun graphs.
 
   If $n \equiv 3\ (\textrm{mod}\ 4)$, then start the coloring from a vertex next
   to $v$. (See Figure \ref{fig:4k+3}.)
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=50mm]{4k+3}
     \caption{Coloring an outerplanar graph of order $4k + 3$}
@@ -185,12 +185,13 @@ For proving this theorem we need some observations about generalized sun graphs.
   \end{figure}
 
   Suppose $n \equiv 2\ (\textrm{mod}\ 4)$. We show by induction that if $G$ does not have $2$
-  disjoint total dominating sets, then it is a generalized sun graph.\\
-  The case $k = 1$ is easy to check.\\
+  disjoint total dominating sets, then it is a generalized sun graph. The case $k = 1$ is easy to check.
+
   If $G$ has a chord $uv$ of length $3$, then $uv$ divides the graph into two parts:
   $G_1$ of order $4$ and $G_2$ of order $4k$. By alternating colors in pairs one can obtain
   $2$-coupon colorings of $G_1$ and $G_2$, where both $u$ and $v$ are colored to black
-  in both graphs.\\
+  in both graphs.
+
   If $G$ does not have a chord of length $3$, then by Lemma \ref{lem:3-4_chord}
   there exists a chord $uv$ of length $4$. Then $uv$ divides $G$ into two graphs.
   One of them must be the maximal outerplanar graph $G_5$ of order $5$. $u$ and $v$
@@ -200,7 +201,8 @@ For proving this theorem we need some observations about generalized sun graphs.
   Consider the face $uvw$, where $w$ is not in $G_5$. The deletion of this face
   divides $G$ into $3$ graphs: $G'$, $G''$ and $G_5$. (It might be that $G'$ or $G''$ is
   degenerated in the sense that it consists only of one edge.) Let $G'$ be the graph containing
-  $u$ and $w$. Without loss of generality we may assume that $|G''| \le |G'|$.\\
+  $u$ and $w$. Without loss of generality we may assume that $|G''| \le |G'|$.
+
   Choose the $uv$ chord in a way, such that $|G'|$ is minimal. We may assume that
   $G'$ has at most $3$ faces by Lemma \ref{lem:del_face}, and thus $|G'| \le 5$.
   Thus, there are $4$ cases depending on the size of $G'$.
@@ -213,7 +215,7 @@ For proving this theorem we need some observations about generalized sun graphs.
       If $v$ is a degree $2$ or central vertex in $G''$, then color the vertices of $G''$ by
       alternating colors in pairs, starting with white from $w$, but color $v$ to
       black. Let $x$ denote the vertex before $v$. (See Figure \ref{fig:case1}.)
-      \begin{figure}[h]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=60mm]{case1}
         \caption{Case $1$}
@@ -232,7 +234,7 @@ For proving this theorem we need some observations about generalized sun graphs.
       by deleting $G_5$ and identifying $uw$ with $vw$. (See \ref{fig:case2})
       $G$ is $2$-coupon colorable if and only if $H$ is $2$-coupon colorable. On the other hand,
       $G$ is a generalized sun graph if and only if $H$ is a generalized sun graph.
-      \begin{figure}[h]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=150mm]{case2}
         \caption{Case $2$: $G$ (left) and $H$ (right)}
@@ -245,7 +247,7 @@ For proving this theorem we need some observations about generalized sun graphs.
       find a chord of length $3$. In a $2$-coupon coloring $u$ and $w$ must have
       the same color. Let $H$ be the graph obtained from $G$ by deleting $G_5$
       and identifying $uw$ with $vw$. (See \ref{fig:case4})
-      \begin{figure}[h]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=150mm]{case4}
         \caption{Case $4$: $G$ (left) and $H$ (right)}
@@ -326,7 +328,7 @@ is at least two. We still need a Lemma for proceeding with the proof.
   in $G_1$, hence $v_{i - 1}v_{i + 1}$ is an edge in $G_1$. Similarly, $v_{i + 2}v_{i + 4}$
   is an edge in $G_2$. These two edges ensure that $v_{i + 1}$ and $v_{i + 2}$ also
   have neighbors in both color classes.
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=60mm]{hamilton}
     \caption{Coloring a Hamiltonian graph}
@@ -403,16 +405,16 @@ without too many low-degree vertices. For proving this, we will use a theorem
 about coloring hypergraphs. First, let us introduce the necessary definitions.
 
 \begin{definition}
-  Let $H$ be a hypergraph. The incidence graph of $H$ is a bipartite graph with one of
+  Let $H$ be a hypergraph. The \emph{incidence graph} of $H$ is a bipartite graph with one of
   its classes corresponding to the vertices of $H$, and the other class corresponding to
   the hyperedges of $H$. $ve$ is an edge in the incidence graph if and only if the
   hyperedge $e$ contains vertex $v$ in $H$.
 \end{definition}
 \begin{definition}
-  A hypergraph is called planar, if its incidence graph is planar.
+  A hypergraph is called \emph{planar}, if its incidence graph is planar.
 \end{definition}
 \begin{definition}
-  A vertex coloring of a hypergraph is proper if all its hyperedges contain vertices
+  A vertex coloring of a hypergraph is \emph{proper} if all its hyperedges contain vertices
   from both color classes.
 \end{definition}
 
@@ -434,7 +436,7 @@ The following theorem is from Zdenek Dvorák, Daniel Král \cite{hypergraph}.
   (See Figure \ref{fig:hyper}.) After this, triangulate the faces that have more than
   $3$ vertices.
 
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=150mm]{hypergraph}
     \caption{A hypergraph (a), its incidence graph (b), a planar embedding of the
@@ -492,7 +494,7 @@ Now we are ready to prove our claim about graphs without too many low-degree ver
   It is not true that every simple quadrangulated graph has a $2$-coupon coloring.
   See Figure \ref{fig:quad} for an example.
 \end{remark}
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=60mm]{quad}
   \caption{A quadrangulated graph without two disjoint dominating sets}
@@ -520,13 +522,27 @@ is that property $B$ has been studied extensively.
 
 A conjecture of Barnette \cite{barnette} is the following.
 \begin{conj}
-  Every $3$-connected cubic planar bipartite graph is Hamiltonian.
+  Every $3$-connected $3$-regular bipartite planar graph is Hamiltonian.
 \end{conj}
 
-By \ref{ham_dual} if the Barnette-conjecture holds, then the Goddard-Henning
-conjecture also holds for Eulerian triangulations.
+By Claim \ref{ham_dual} and Lemma \ref{l:bipartite}, if Barnette's conjecture holds, then the Goddard-Henning
+conjecture also holds for Eulerian triangulations. In this section, we give a brief
+overview of its history and show two equivalent forms of the conjecture.
 
-Alt, Payne, Schmidt and Wood \cite{spec_barnette} proved that the conjecture holds
-for graphs, where the dual is an Eulerian planar triangulation and has a special $3$-coloring.
+Barnette's conjecture originates from Tait's conjecture. Tait \cite{tait} conjectured
+that every $3$-connected $3$-regular planar graph is Hamiltonian. This is stronger
+than Barnette's conjecture, as it does not requires the graph to be bipartite. Tutte \cite{tutte} constructed a
+counterexample for Tait's conjecture, and conjectured a similar statement. Namely, that every
+$3$-connected $3$-regular bipartite graph is Hamiltonian. Again, this is stronger than
+Barnette's conjecture, as it does not require the graph to be planar. Tutte's conjecture was
+also disproven: Horton \cite{horton} found a counterexample.
 
-TODO
+Kelmans \cite{kelmans} showed that Barnette's conjecture is equivalent to the statement that
+for every two edges on the same face of a $3$-connected $3$-regular bipartite planar graph,
+there exists a Hamiltonian cycle containing both edges. Note, that Barnette's conjecture
+trivially follows from this statement.
+
+Florek \cite{florek} showed that Barnette's conjecture can be rephrased using the dual graph.
+Namely, the following statement is equivalent with Barnette's conjecture. The vertices
+of the dual of every $3$-connected $3$-regular bipartite planar graph can be partitioned
+into two subsets whose induced subgraphs are trees.

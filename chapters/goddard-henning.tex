@@ -1,9 +1,9 @@
-\section{Formulate the conjecture}
+\section{Formulating the conjecture}
 
 From now on we will focus on $2$-coupon colorings and planar graphs.
 A conjecture of Goddard and Henning \cite{gh} is the following.
 
-\begin{conj}
+\begin{conj} \label{conj}
   If $G$ is a simple triangulated planar graph of order at least $4$, then the
   total domatic number of $G$ is at least $2$.
 \end{conj}
@@ -13,10 +13,10 @@ A conjecture of Goddard and Henning \cite{gh} is the following.
   \ref{fig:parallel} has a $2$-coupon coloring. Then $A$ and $C$ must have
   different colors, because they are the only neighbors of $B$. Similarly, $C$
   and $E$ must have different colors, as well as $E$ and $A$. That is a
-  contradiction, since $A$, $C$ and $E$ form a triangular.
+  contradiction, since $A$, $C$ and $E$ form a triangle.
 \end{remark}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=70mm]{parallel}
   \caption{Simplicity is necessary}
@@ -26,7 +26,7 @@ A conjecture of Goddard and Henning \cite{gh} is the following.
 \begin{remark}
   Allowing triangulated disks (i.e. planar graphs with at most one face greater
   than $3$), the conjecture does not hold. For example, the graph on figure
-  \ref{fig:sungraph} does not have a $2$-coupon coloring from similar reasons as
+  \ref{fig:sungraph} does not have a $2$-coupon coloring for similar reasons as
   the previous one. We will show later that this graph is a member of a bigger
   graph family without $2$ disjoint dominating sets.
 \end{remark}
@@ -38,7 +38,7 @@ A conjecture of Goddard and Henning \cite{gh} is the following.
   \label{fig:sungraph}
 \end{figure}
 
-\section{Fast proofs for some special cases}
+\section{Easy proofs for some special cases}
 
 There are some sufficient conditions known for having a total domatic number of
 at least $2$. We will cover most of the known cases along the way. In this section
@@ -48,7 +48,7 @@ The first example is a graph family for which an easy induction shows that they
 are $2$-coupon colorable.
 
 \begin{definition}
-  A graph is called a stacked graph if it can be constructed from a triangle by
+  A graph is called a \emph{stacked graph} if it can be constructed from a triangle by
   repeatedly putting a new vertex in a face and connecting it with the vertices on
   the boundary of that face.
 \end{definition}
@@ -68,34 +68,34 @@ are $2$-coupon colorable.
   The construction of the graph starts with a simple triangle. Color two vertices
   of the triangle to black, and the remaining vertex to white. Color the vertex added
   to the graph in the first step to white. This coloring has the desired properties.
-  When a vertex is inserted into a face, color the new vertex to white, if there is
+  When a vertex is inserted into a face, color the new vertex to white if there is
   only one white vertex on the face's boundary, and black otherwise. This trivially
   maintains the desired properties.
 \end{proof}
 
-Goddard and Henning \cite{gh} established the conjecture for some cases. We show now three
+Goddard and Henning \cite{gh} verified the conjecture for several cases. We show now three
 of them.
 
 \begin{claim} \label{c:odd}
-  Let $G$ be a a simple triangulated graph. If all the
+  Let $G$ be a simple triangulated graph. If all the
   vertices of $G$ have an odd degree, then there exists a coupon coloring with $2$ colors.
 \end{claim}
 \begin{proof}
   There exists a proper $4$-coloring of the vertices. As every vertex $v$ has an
-  odd degree, there exists an odd circle in the neighborhood of $v$. Hence, in a proper
+  odd degree, there exists an odd cycle in the neighborhood of $v$. Hence, in a proper
   $4$-coloring $v$ has neighbors from at least $3$ color classes. This means that
   the union of any two color classes forms a total dominating set.
 \end{proof}
 
 \begin{claim}
   If $G$ can be obtained from a triangulated graph $H$ by putting a new vertex on every
-  face and connecting them with the vertices of that face, then $G$ it $2$-coupon
+  face and connecting them with the vertices of that face, then $G$ is $2$-coupon
   colorable.
 \end{claim}
 \begin{proof}
   Take a proper $4$-coloring on the vertices of $H$ and define a $2$-coloring by taking
   the union of $2-2$ color classes. The obtained coloring has the property that
-  none of the faces is monochromatic. Color the added vertices to black if the face
+  none of the faces is monochromatic. Color the additional vertices to black if the face
   has only one black vertex, and color it to white otherwise.
 \end{proof}
 
@@ -104,11 +104,31 @@ of them.
   of $G$ is Hamiltonian, then $G$ admits two disjoint total dominating sets.
 \end{claim}
 \begin{proof}
-  Let $C$ be the Hamiltonian graph in the dual graph. Color the vertices of $G$
-  inside $C$ to black, and the vertices outside of $C$ to white.
+  Let $C$ be the Hamiltonian cycle in the dual graph $G^*$. Consider $C$ as a curve on the plane.
+  Color the vertices of $G$ inside $C$ to black, and the vertices outside of $C$ to white.
+  We claim that this way we defined a $2$-coupon coloring of $G$. To prove this, we need to show
+  that for every face $f$ of $G^*$, there exist a face $f'$ inside $C$ and a face $f''$
+  outside of $C$ (inclusively) such that $f$ has a common edge with both $f'$ and $f''$.
+
+  Let $f$ be a face inside $C$. We claim that $f$ has an edge on $C$. Otherwise the
+  vertices of $f$ would be of degree at least $4$, which is a contradiction, as $G^*$ is
+  $3$-regular. Let $f''$ be the face on the other side of this edge.
+
+  If $f$ has a neighboring face inside $C$, then choose $f'$ to be that face.
+  If $f$ does not have any neighboring faces inside $C$, then $f$ must be a face defined by $C$.
+  As $G$ does not have parallel edges, all the edges of $C$ must belong to different
+  faces outside of $C$. Index the vertices along $C$ from $c_1$ to $c_{n^*}$. If there
+  is an edge $c_ic_j$ going between two non-consecutive vertices of $C$, then by the $3$-regularity
+  of $G^*$, $c_ic_{i+1}$ and $c_{j - 1}c_j$ belong to the same face outside of $C$. It
+  also follows from the $3$-regularity, that if there are two parallel $c_ic_{i+1}$ edges in $G^*$, then
+  there is only one $c_{i + 1}c_{i + 2}$ edge. Thus, the only case in which all the edges of $C$
+  belong to different faces outside of $C$, is when $C$ is of length $2$. This means, that
+  $G$ is a triangle, and that is a contradiction.
+
+  The same proof works for faces outside of $C$.
 \end{proof}
 
-\section{Variations on the conjecture}
+\section{Variations of the conjecture}
 
 As a reminder: the Goddard-Henning conjecture states that every simple triangulated
 planar graph of order at least $4$ has total domatic number at least $2$. In this
@@ -119,20 +139,20 @@ statements are not true, they can be useful for proving the conjecture in specia
 
 \begin{definition}
   Let $G$ be a triangulated planar graph. For a vertex $v$, each triangle
-  containing $v$ has an edge not containing $v$. We call the circle consisting of
-  these edges a wheel.
+  containing $v$ has an edge not containing $v$. We call the cycle consisting of
+  these edges a \emph{wheel}.
 \end{definition}
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=70mm]{wheel}
-  \caption{The green edges form the wheel defined by $A$ }
+  \includegraphics[width=75mm]{wheel}
+  \caption{The dashed edges form the wheel defined by $v$ }
   \label{fig:wheel}
 \end{figure}
 
 \begin{guess}\label{s:bipartite}
   Let $G = (V, E)$ be a simple triangulated graph of order at least $4$. Then there
-  exists a bipartite $H = (V, F)$ subgraph of $G$, such that $F$ contains at
+  exists a bipartite $H = (V, F)$ subgraph of $G$ such that $F$ contains at
   least one edge from each wheel of $G$.
 \end{guess}
 
@@ -160,7 +180,7 @@ statements are not true, they can be useful for proving the conjecture in specia
 
 \begin{guess}\label{s:no_iso}
   Let $G = (V, E)$ be a simple triangulated graph of order at least $4$. Then there
-  exists a subgraph of $H' = (V, F')$ having the following two properties.
+  exists a subgraph $H' = (V, F')$ having the following two properties.
   \begin{enumerate}
     \item $F'$ contains exactly $1$ edge from each face of $G$.
     \item There are no isolated vertices in $H'$.
@@ -168,17 +188,17 @@ statements are not true, they can be useful for proving the conjecture in specia
 \end{guess}
 
 \begin{lemma}\label{l:bipartite}
-  A connected planar graph is bipartite if end only if each of its faces have an
+  A connected planar graph is bipartite if and only if each of its faces have an
   even number of edges.
 \end{lemma}
 \begin{proof}
-  Suppose that the graph is not bipartite and thus there exists a circle $C$ of odd
-  length. We show that then exists an odd face. The proof goes by induction on the
+  Suppose that the graph is not bipartite and thus there exists a cycle $C$ of odd
+  length. We show that there exists an odd face. The proof goes by induction on the
   number of faces in the inner side of $C$. If $C$ is a face, then we are done.
   If $C$ is not a face, then there exists a face $f$ in the inner side of $C$ having at least one
   common edge with $C$. $f$ does not contain every edge of $C$, since $G$ is connected.
   Let $C'$ be the symmetric difference of the edge sets of $C$ and $f$. By the parity of $C$
-  either $f$ is an odd face or $C'$ is an odd circle containing less faces in its
+  either $f$ is an odd face or $C'$ is an odd cycle containing less faces in its
   inner side than $C$.
 
   The other direction is trivial.
@@ -207,7 +227,7 @@ statements are not true, they can be useful for proving the conjecture in specia
   Suppose that there exists a face $uvw$ in $G$ with $uv, vw \notin F \cup F_0$, $wu \in F \cup F_0$.
   If $F \cup F_0 \cup \{ uv \}$ or $F \cup F_0 \cup \{ vw \}$ is bipartite, then
   add the appropriate edge to $F_0$. If adding either of these edges to $F_0$ creates
-  an odd circle in $(V, F \cup F_0)$, then there exists a path $P_{uv}$ of odd
+  an odd cycle in $(V, F \cup F_0)$, then there exists a path $P_{uv}$ of odd
   length from $u$ to $v$ and a path $P_{vw}$ of odd length from $v$ to $w$. Thus $P{uv}
   + P{vw} + wu$ is a closed walk of odd length. But that is a contradiction as
   $(V, F \cup F_0)$ is a bipartite graph.
@@ -223,7 +243,7 @@ statements are not true, they can be useful for proving the conjecture in specia
   from each face, and has no isolated vertices.
 \end{proof}
 
-One can phrase the Goddard-Henning conjecture in the dual graph as well.
+One can rephrase the Goddard-Henning conjecture in the dual graph as well.
 
 \begin{claim} \label{c:dual}
   $G^* = (V^*, E^*)$ is the dual of a simple triangulated graph of order at least $4$
@@ -245,14 +265,14 @@ One can phrase the Goddard-Henning conjecture in the dual graph as well.
   Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
   Then there exists a subgraph $H^* = (V^*, F^*)$ in $G^*$ that has the following $2$ properties.
   \begin{enumerate}
-    \item It does not contain any odd cut of $G^*$.
+    \item $H^*$ does not contain any odd cut of $G^*$.
     \item For every face $f$ of $G^*$, $H^*$ contains an edge $e$ not on $f$ that has at least one
     endpoint on $f$. We say that $e$ leaves the face $f$.
   \end{enumerate}
 \end{guess}
 
 \begin{claim}
-  \ref{s:dual} is equivalent with \ref{s:bipartite}.
+  Statement \ref{s:dual} is equivalent with Statement \ref{s:bipartite}.
 \end{claim}
 \begin{proof}
   We show that given a subgraph $H = (V, F)$ that meets the requirements of \ref{s:bipartite},
@@ -260,7 +280,7 @@ One can phrase the Goddard-Henning conjecture in the dual graph as well.
   \ref{s:dual}, and vice versa. It may be worth noting that the defined $H^*$ is
   not necessarily the same as the dual graph of $H$.
 
-  It follows from the fact that circles of a planar graph correspond to minimal cutsets in the
+  It follows from the fact that cycles of a planar graph correspond to minimal cutsets in the
   dual graph, that $H$ is bipartite if and only if $H^*$ does not contain any odd cut of $G^*$.
 
   Moreover, an edge from a wheel defined by $v$ in $G$, corresponds to an edge
@@ -274,23 +294,23 @@ One can phrase the Goddard-Henning conjecture in the dual graph as well.
   Then there exists a subgraph that has the following $2$ properties.
   \begin{enumerate}
     \item It intersects every odd cut of $G^*$.
-    \item For every face $f$ of $G^*$ it does not contain all the edges leaving $f$.
+    \item For every face $f$ of $G^*$, it does not contain all the edges leaving $f$.
   \end{enumerate}
 \end{guess}
 
 \begin{claim}
-  \ref{s:dual} holds if and only if \ref{s:dual_comp} holds.
+  Statement \ref{s:dual} holds if and only if Statement \ref{s:dual_comp} holds.
 \end{claim}
 \begin{proof}
   If $H^*$ meets the requirements of either of the statements, the complementer subgraph in $G^*$
   meets the requirements of the other.
 \end{proof}
 
-A $2$-factor of a graph $G = (V, E)$ consists of disjoint circles covering $V$.
+A $2$-factor of a graph $G = (V, E)$ consists of disjoint cycles covering $V$.
 We can formulate a sufficient condition for the Goddard-Henning conjecture with
 the help of $2$-factors. The motivation for such a reformulation is the fact that
-the existence of $2$-factors in which some cycles are not allowed, is a well-studied
-part of graph theory.
+the existence of $2$-factors in which some cycles are not allowed is a well-studied
+area in graph theory.
 
 \begin{guess} \label{s:2-factor}
   Let $G^* = (V^*, E^*)$ be a $3$-regular $2$-edge-connected planar graph of order at least $4$.
@@ -302,7 +322,7 @@ part of graph theory.
 \begin{proof}
   Let $H^* = (V^*, F^*)$ be the $2$-factor containing none of the faces of $G^*$.
 
-  Every cut of $G^*$ has an even number of common edges with every circle in $H^*$.
+  Every cut of $G^*$ has an even number of common edges with every cycle in $H^*$.
   Therefore $H^*$ does not contain any odd cuts of $G^*$.
 
   Let $f = v_1v_2 \dots v_l$ be a face of $G^*$. As $F^*$ does not contain $f$,
@@ -326,4 +346,68 @@ Statement \ref{s:2-factor} can easily be converted into a statement about perfec
   each face.
 \end{proof}
 
-TODO: Add a figure about these statements.
+The following figure summarizes the statements of this section. For this, let $G$ be a simple
+triangulated planar graph of order at least $4$ and let $G^*$
+denote its dual. Note, that by Claim \ref{c:dual}, $G^*$ is a $3$-regular $2$-edge-connected
+planar graph of order at least $4$.
+\vspace*{\fill}
+\begin{center}
+  \begin{tikzpicture}
+  [block/.style ={rectangle, draw=black, thick,
+    align=flush center, rounded corners, outer sep=5,
+    minimum height=4em},
+  ]
+  \node [block, double, double distance=1pt, text width=45mm] (conj){
+    $G$ has total domatic number at least $2$. (Conjecture \ref{conj})
+  };
+  \node [block, text width=45mm] (bipartite)
+    [below=10mm of conj]{
+    There exists a bipartite $H = (V, F)$ subgraph of $G$ such that $F$ contains at
+    least one edge from each wheel of $G$. (Statement \ref{s:bipartite})
+  };
+  \node [block, text width=45mm] (forest)
+    [left=10mm of bipartite]{
+    There exists a forest in $G$ containing at least one edge from each wheel.
+    (Statement \ref{s:forest})
+  };
+  \node [block, text width=45mm] (no_iso)
+    [right=10mm of bipartite]{
+    There exists a subgraph $H' = (V, F')$ of $G$ such that $F'$ contains exactly
+    $1$ edge from each face of $G$ and $H'$ does not have any isolated vertices.
+    (Statement \ref{s:no_iso})
+  };
+  \node [block, text width=45mm] (dual)
+    [below=10mm of bipartite]{
+    There exists a subgraph $H^* = (V^*, F^*)$ in $G^*$ that does not contain
+    any odd cut of $G^*$, and for every face of $G^*$, $H^*$ contains an edge
+    $e$ leaving that face.
+    (Statement \ref{s:dual})
+  };
+  \node [block, text width=60mm] (dual_comp)
+    [below=10mm of dual]{
+    There exists a subgraph $H^*$ of $G^*$ that intersects every odd cut of $G^*$ and for
+    every face $f$ in $G^*$, $H^*$ does not contain all the edges leaving $f$.
+    (Statement \ref{s:dual_comp})
+  };
+  \node [block, text width=45mm] (2-factor)
+    [left=10mm of dual]{
+      There exists a $2$-factor in $G^*$ that does not contain any of the faces of $G^*$.
+    (Statement \ref{s:2-factor})
+  };
+
+  \node [block, text width=45mm] (matching)
+    [below=10mm of 2-factor]{
+    There exists a perfect matching in $G^*$, containing at least one edge from each face.
+    (Statement \ref{s:matching})
+  };
+
+  \draw[<->, ultra thick] (conj) -- (bipartite);
+  \draw[->, ultra thick] (forest) -- (bipartite);
+  \draw[<->, ultra thick] (no_iso) -- (bipartite);
+  \draw[<->, ultra thick] (dual) -- (bipartite);
+  \draw[<->, ultra thick] (dual_comp) -- (dual);
+  \draw[->, ultra thick] (2-factor) -- (dual);
+  \draw[<->, ultra thick] (2-factor) -- (matching);
+  \end{tikzpicture}
+\end{center}
+\vspace*{\fill}

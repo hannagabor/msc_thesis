@@ -1,17 +1,16 @@
-In this chapter we will examine the so-called total domatic number of graphs.
-
+In this chapter we will examine the so-called \emph{total domatic number} of graphs.
 Let $G = (V, E)$ be a graph without isolated vertices.
 
 \begin{definition}
   $S \subseteq V$ is a total dominating set if every vertex has a neighbor in
-  $S$. The total domatic number of $G$ is the maximum number of disjoint total
+  $S$. The \emph{total domatic number} of $G$ is the maximum number of disjoint total
   dominating sets.
 \end{definition}
 
 Sometimes it is more convenient to look at total dominating sets as color classes.
 
 \begin{definition}
-  A coloring of the vertices is called a $k$-coupon coloring if every vertex
+  A coloring of the vertices is called a \emph{$k$-coupon coloring} if every vertex
   has a neighbor from each color class. The coupon coloring number of $G$ is
   the maximum $k$ for which a $k$-coupon coloring exists. The coupon coloring
   number is denoted by $\chi_c(G)$.
@@ -25,14 +24,14 @@ Sometimes it is more convenient to look at total dominating sets as color classe
 
 \section{Complexity}
 
-It turns out that determining the total domatic number (or equivalently the
-coupon coloring number) of a graph is rather hard. Heggernes and Telle \cite{np-complete}
+It turns out that determining the total domatic number (or equivalently, the
+coupon coloring number) of a graph is rather difficult. Heggernes and Telle \cite{np-complete}
 showed that even determining whether the total
 domatic number of a graph is at least $2$ is NP-complete. We prove this by showing
 that a variant of 3SAT is reducible to this question in polynomial time.
 
 \begin{definition}
-  An instance of the not-all-equal 3-satisfiability (NAE-3SAT) problem consists of
+  An instance of the \emph{not-all-equal 3-satisfiability} (NAE-3SAT) problem consists of
   a set $C$ of clauses on a finite set $X$ of Boolean variables, where each clause
   contains three literals. The question is whether there is a truth assignment for
   $X$ that satisfies all the clauses in $C$ such that each clause contains a false
@@ -106,18 +105,18 @@ graph.
 
 \section{Degree restrictions}
 
-A natural question is whether graphs with an appropriately big minimum degree
+A natural question is whether graphs with a sufficiently large minimum degree
 always have a total domatic number of at least $2$. Zelinka \cite{zelinka} showed
 that this is not the case.
 
 \begin{thm}
-  For every $\delta \in \mathbb{Z}^+$ there exists a graph without $2$
-  disjoint total dominating sets with minimum degree $\delta$.
+  For every $\delta \in \mathbb{Z}^+$ there exists a graph of minimum degree $\delta$
+  without $2$ disjoint total dominating sets.
 \end{thm}
 \begin{proof}
   We define a bipartite graph $G = (U, V ; E)$ for arbitrary $\delta$ as follows.
   Let $U$ be a set of cardinality $2\delta - 1$, and $V$ be the set of all subsets of
-  $U$ consisting of $\delta$ elements. For all $ u \in U, v \in V$ vertices $uv \in E$
+  $U$ consisting of $\delta$ elements. For all $ u \in U, v \in V$, $uv \in E$
   if and only if $v$ contains $u$. Clearly, each vertex of $U$ has at least $\delta$
   neighbors, and each vertex of $V$ has exactly $\delta$ neighbors. Suppose that
   there exists a $2$-coupon coloring. Then there exists a monochromatic $U_0 \in U$
@@ -125,10 +124,10 @@ that this is not the case.
   That is a contradiction, since the neighborhood of $v$ is $U_0$, and that is monochromatic.
 \end{proof}
 
-A natural next question might arise. The graph constructed above has a large number
-of vertices compared to the minimum degree. The other extreme is the case of
-complete graphs, where the minimum degree $\delta$ is $n - 1$. This is not an interesting case:
-if $n \ge 4$, then every subset $U$ of the vertices is a total dominating set, if $|U| \ge 2$.
+A natural next question arises. The graph constructed above has a large number
+of vertices compared to the minimum degree. The other extreme case is formed by
+complete graphs, where the minimum degree is $n - 1$. This is not an interesting case:
+if $n \ge 4$, then every subset $U$ of the vertices of size at least $2$ is a total dominating set.
 We show a less strict but sufficient condition for the existence of $2$ disjoint dominating sets:
 a lower bound for the minimum degree defined by the order of the graph.
 The next theorem is also from Zelinka \cite{zelinka}. We show here an easier proof than
@@ -156,8 +155,8 @@ the original.
 \begin{remark}
   Aram, Sheikholeslami and Volkmann \cite{regular} proved a lower bound for the total
   domatic number in terms of the order, the minimal and the maximal degree of the
-  graph. Using this lower bound they proved that the domatic number of an $r$-regular graph
-  is at least $r/3ln(r)$. By an easy calculation follows from this theorem that
-  if a graph is $r$-regulat with $r \ge 5$, then the total domatic number is at least
+  graph. Using this lower bound, they proved that the domatic number of an $r$-regular graph
+  is at least $r/3ln(r)$. By an easy calculation, it follows from this theorem that
+  if a graph is $r$-regular with $r \ge 5$, then the total domatic number is at least
   $2$.
 \end{remark}
