@@ -1,10 +1,10 @@
-It is a natural idea to check the Goddard-Henning conjecture for small graphs with
+It is a natural idea to check if the Goddard-Henning conjecture holds for small graphs with
 computational help. The main challenge in doing so is generating all planar triangulations
 on $n$ vertices.
 
 Avis \cite{algorithm} gave an algorithm for generating all $3$-connected triangulated disks without
-too many repetitions. For phrasing it more precisely, we call $(G, v_1, \dots v_r)$
-an $r$-rooted triangulation, if $v_1, \dots, v_r$ are vertices of a face in $G$, and $G$
+too many repetitions. For phrasing this more precisely, we call $(G, v_1, \dots v_r)$
+an \emph{$r$-rooted triangulation} if $v_1, \dots, v_r$ are vertices of a face in $G$, and $G$
 can be embedded in the plane with the following properties.
 
 \begin{enumerate}
@@ -14,51 +14,47 @@ can be embedded in the plane with the following properties.
 \end{enumerate}
 
 The algorithm generates all $3$-connected $r$-rooted simple triangulations of order $n$ exactly once.
-In this chapter we will describe how this algorithm works.
+In this chapter, we will describe how this algorithm works.
 
-Suppose that $r < n$ for avoiding a trivial case.
+To avoid a trivial case, suppose that $r < n$.
 
 \begin{remark}
-  Every $r$-rooted triangulation has a unique embedding to the plane, in the sense that
+  Every $r$-rooted triangulation has a unique embedding to the plane in the sense that
   for every vertex $v$, the order of its neighbors is the same in all embeddings.
 \end{remark}
 
 \begin{claim} \label{c:3conn}
-  An $r$-rooted triangulation is $3$-connected if and only if there does not exist
-  an edge between two non-consecutive vertices of the outer face.
+  An $r$-rooted triangulation is $3$-connected if and only if there exist no edges
+  between two non-consecutive vertices of the outer face.
 \end{claim}
 \begin{proof}
   If there is an edge between two non-consecutive vertices of the outer face, then
   the endpoints of this edge clearly define a cut of the graph, so it is not $3$-connected.
 
   On the other hand, if $G = (V, E)$ is not $3$-connected, then there exist $u, v \in V$ such that
-  removing $\{u, v\}$ from the $G$, cuts the graph into $2$ parts. As $r$-rooted triangulations
-  do not have cutting vertices, $u$ and $v$ must be on the outer face of $t$, not consecutive
-  to each other.
+  removing $\{u, v\}$ from $G$, cuts the graph into $2$ parts. As $r$-rooted triangulations
+  do not have cutting vertices, $u$ and $v$ must be on the outer face of $t$ and they
+  are not consecutive to each other.
 \end{proof}
 
-\begin{cor}
-  If $r = 3$, then every rooted triangulation is $3$-connected.
-\end{cor}
-
-The idea of the algorithm is the following. First we construct an auxiliary graph $H = (T, F)$, where
-$T$ is the set of $3$-connected $r$-rooted planar triangulations of order $n$. Then we will
-show that $H$ is connected. Finally, we perform a depth-first-search on $H$.
+The idea of the algorithm is as follows. First we construct an auxiliary graph $H = (T, F)$, where
+$T$ is the set of $3$-connected $r$-rooted planar triangulations of order $n$. Then we
+show that $H$ is connected. Finally, we perform a depth-first-search on $H$. For doing so,
+we need to introduce a few notions first.
 
 \begin{definition}
-  We call an edge of a planar graph internal, if it is not on the outer face of the graph.
+  We call an edge of a planar graph \emph{internal}, if it is not on the outer face of the graph.
 
   Let $t$ be an $r$-rooted triangulation and let $uv$ be an internal edge of $t$. There exist two
-  faces containing $uv$: $uvx$ and $uvy$. We say that $uv$ is a transformable edge
+  faces containing $uv$: $uvx$ and $uvy$. We say that $uv$ is a \emph{transformable edge}
   if and only if $xy$ is not an edge in $t$.
 
-  If $uv$ is transformable, we refer to the following operation as flipping $uv$:
+  If $uv$ is transformable, we refer to the following operation as \emph{flipping} $uv$:
   delete the edge $uv$ and add the edge $xy$ to the graph. We denote the resulting
   graph with $flip(t, uv)$.
 
   We define the edge set of $H$ as follows. For $t_1, t_2 \in T$, $t_1t_2 \in F$ if and only
-  if there exists a transformable edge $e$ in $t_1$ such that it is not on the outer face,
-  and the flipping of $e$ results in $t_2$.
+  there exists a transformable edge $e$ in $t_1$ such that $t_2 = flip(t_1, e)$.
 \end{definition}
 
 \begin{remark}
@@ -71,7 +67,7 @@ show that $H$ is connected. Finally, we perform a depth-first-search on $H$.
   in the graph $t_1$.
 \end{proof}
 
-For proving the connectivity of $H$, we need the following lemma.
+To prove the connectivity of $H$, we need the following lemma.
 
 \begin{lemma} \label{l:trans}
   Let $v$ be a vertex in a $3$-connected $r$-rooted triangulation $G$. Suppose that $v$ is of degree
@@ -81,15 +77,16 @@ For proving the connectivity of $H$, we need the following lemma.
   the graph obtained by the transformation is also a $3$-connected $r$-rooted triangulation.
 \end{lemma}
 \begin{proof}
-  $v_u3$ in an internal edge bounding faces $vu_2u_3$ and $vu_3u_4$. if $vu_3$
-  is not transformable, then $u_2u_4$ is an edge. It is an internal edge, as $u_2$
+  $v_u3$ in an internal edge bounding faces $vu_2u_3$ and $vu_3u_4$. If $vu_3$
+  is not transformable, then $u_2u_4$ is an edge. It is an internal edge, since $u_2$
   does not lie on the outer face. Let $xu_2u_4$ and $yu_2u_4$
   be the two faces bounded by $u_2u_4$. One of them must lie inside the triangle $vu_2u_4$,
-  the other one must lie outside of it. ($x$ or $y$ might be $v$.) Thus, $u_2u_4$
+  the other one must lie outside of it. ($v$ might be $x$ or $y$.) Thus, $u_2u_4$
   is transformable. (See Figure \ref{fig:trans}.)
 
-  By Claim \ref{c:3conn}, it is enough to show for $3$-connectivity, that the new
-  edge has an internal vertex. If $u_2u_4$ is the new edge, then $u_2$ is an internal
+  By Claim \ref{c:3conn}, to prove that the resulting graph is $3$-connected, it
+  is enough to show that the new edge has an internal vertex.
+  If $u_2u_4$ is the new edge, then $u_2$ is an internal
   vertex. Otherwise, the new edge is $xy$. One of them lies inside the $vu_2u_4$,
   and hence it is internal.
 \end{proof}
@@ -109,7 +106,7 @@ For proving the connectivity of $H$, we need the following lemma.
   for every $t \in T$, we construct a path starting from $t$. Finally,
   we show that each of these paths ends in $t^*$.
 
-  Define $t^*$ as follows. $v_1, v_2 \dots, v_r$ form the outer face of $t^*$.
+  Define $t^*$ as follows. Let $v_1, v_2 \dots, v_r$ form the outer face of $t^*$.
   Connect $v_{r+1}$ to all the vertices of the outer face. For $i \ge r + 2$,
   put $v_i$ on the $v_{r-1}v_rv_{i-1}$ face and connect it with all of these three vertices.
   (See figure \ref{fig:root}.)
@@ -128,6 +125,8 @@ For proving the connectivity of $H$, we need the following lemma.
   \begin{algorithm}
     \caption{Construct path} \label{alg:path}
     \begin{algorithmic}
+      \linespread{1.0}
+      \small{
       \STATE let $p$ be an array of length $n$ /* $p[i]$ will be the $i^{th}$ vertex of the path.
       \STATE $p[0] := t$
       \WHILE{\TRUE}
@@ -167,21 +166,23 @@ For proving the connectivity of $H$, we need the following lemma.
           \ENDIF
         \ENDIF
         \STATE $t := p[j]$
-      \ENDWHILE
+      \ENDWHILE}
     \end{algorithmic}
   \end{algorithm}
+  \linespread{1.3}
+
 
   We claim that after enough steps, $deg(v_1) = \dots = deg(v_{r - 2}) = 3$.
-  Suppose that $deg(v_i) \neq 3$ for some $i \le r - 2$. Let $i$ be the smallest such index.
+  Otherwise, $deg(v_i) \neq 3$ for some $i \le r - 2$. Let $i$ be the smallest such index.
   Then the algorithm takes $v_{i - 1}, u_2, u_3, u_4$ such that they are consecutive neighbors of $v_i$
   in counterclockwise order. If $v_iu_3$ is transformable, then the degree of $v_i$
-  decreases and for every $j < i, deg(v_j)$ does not change. Suppose that $v_iu_3$
+  decreases and for every $j < i,$ $deg(v_j)$ does not change. Suppose that $v_iu_3$
   is not transformable. Then let $xu_2u_4$ and $yu_2u_4$ be the two faces bounding $u_2u_4$.
   Suppose $y = v_j$ for some $j < i$. From $deg(v_j) = 3$ it follows, that $u_4$ must be $v_{j - 1}$.
   On the other hand, by $3$-connectivity, if $u_4$ is an external vertex, then it
   is $v_{i + 1}$ and hence $i = r - 1$, which is a contradiction. So adding $xy$ to the graph
   does not change the degree of $v_j$ for any $j < i$. In the next step of the algorithm,
-  $v_iu_3$ is transformable. So we showed, that after enough steps, $deg(v_i) = 3$ for every $i \le r - 2$.
+  $v_iu_3$ is transformable. Thus, we showed, that after enough steps, $deg(v_i) = 3$ for every $i \le r - 2$.
 
   If $v_1, \dots v_{r - 2}$ are all degree $3$ vertices, then there exists a vertex $w$
   such that $w$ is connected to $v_1, \dots v_r$. If $w$ has
@@ -191,18 +192,18 @@ For proving the connectivity of $H$, we need the following lemma.
   the degree of $w$ decreases, and for $j \le r - 2$, $deg(v_j)$ does not change.
   The other case is when $wu_3$ is not transformable. Let $x$ and $y$ be the
   vertices of the two faces bounded by $u_2u_4$, In this case the algorithm
-  deletes $u_2u_4$ from the graph and adds $xy$ to the it. This does not change the
-  degree of $v_j$ for $j \le r - 2$. In the next step of the algorithm $wu_3$ will be
+  deletes $u_2u_4$ from the graph and adds $xy$ to it. This does not change the
+  degree of $v_j$ for $j \le r - 2$. In the next step of the algorithm $wu_3$ is
   transformable. Thus, after some steps, $w$ will have only one internal neighbor $b$.
   It follows, that $bv_r$ and $bv_{r - 1}$ are edges. With the same process, we
   achieve that $b$ has at most $1$ internal neighbor apart from $v$. It is easy to see, that
-  the changes does not affect vertices outside of $bv_rv_{r - 1}$. Thus, by iterating these
+  the changes do not affect vertices outside of $bv_rv_{r - 1}$. Therefore, by iterating these
   steps we can achieve $t^*$.
 \end{proof}
 
-With this, we also proved that performing a depth-first-search on $H$, one
+The proof shows that by performing a depth-first-search on $H$, one
 can generate all $r$-rooted $3$-connected triangulations. To determine the neighbors
-of a triangulation $t \in H$, we determine for each edge $e$ of $t$ if $e$ is transformable in $t$.
+of a triangulation $t \in H$, we check for each edge $e$ in $t$ if $e$ is transformable in $t$.
 For each pair $(t, e)$, this can be done in $O(n)$ time. Hence, if
 $K$ denotes the number of all $r$-rooted $3$-connected triangulations on $n$ vertices, then
 the algorithm finishes in $O(n^2K)$ time.
