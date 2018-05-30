@@ -1,11 +1,11 @@
 \section{Outerplanar and Hamiltonian graphs}
 Nagy \cite{outerplanar} showed that the conjecture of Goddard and Henning holds for
 Hamiltonian graphs. For this, he characterized the $2$-coupon colorable
-maximal outerplanar graphs first.
+maximal \emph{outerplanar} graphs first.
 
 \begin{definition}
-   A graph is outerplanar if it has a planar drawing for which all vertices
-   belong to the outer face. A maximal outerplanar graph is a simple outerplanar graph
+   A graph is \emph{outerplanar} if it has a planar drawing for which all vertices
+   belong to the outer face. A \emph{maximal outerplanar} graph is a simple outerplanar graph
    such that adding any edge results in a non-outerplanar graph.
 \end{definition}
 \begin{remark}
@@ -15,7 +15,7 @@ maximal outerplanar graphs first.
 In order to provide the mentioned characterization, we need to introduce a few
 notions first.
 \begin{definition}
-  Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The sun graph $M(G)$
+  Let $G$ be a maximal outerplanar graph of order $n \ge 3$. The \emph{sun graph} $M(G)$
   of $G$ is obtained by gluing a triangle to each edge of the outer face.
 \end{definition}
 \begin{remark}
@@ -29,7 +29,7 @@ notions first.
   the sun graph of the $BDE$ triangle.
 \end{remark}
 \begin{definition}
-  A vertex $v$ of a maximal outerplanar graph is called a central vertex if the
+  A vertex $v$ of a maximal outerplanar graph is called a \emph{central vertex} if the
   following conditions hold.
   \begin{enumerate}
     \item $deg(v) \ge 3$
@@ -51,7 +51,7 @@ notions first.
   $i \equiv 1\ (\textrm{mod}\ 4)$, a contradiction.
 \end{proof}
 \begin{definition}
-  A generalized sun graph is a maximal outerplanar graph of order
+  A \emph{generalized sun graph} is a maximal outerplanar graph of order
   $n \equiv 2\ (\textrm{mod}\ 4)$ such that the number of
   degree $2$ vertices plus the number of central vertices is $n/2$.
 \end{definition}
@@ -70,7 +70,7 @@ The key theorem is the following.
 For proving this theorem, we need some observations about generalized sun graphs.
 
 \begin{definition}
-  Let $G$ be a maximal outerplanar graph and $i \ge 2$. We say that a $uv$ edge is a chord
+  Let $G$ be a maximal outerplanar graph and $i \ge 2$. We say that a $uv$ edge is a \emph{chord}
   of length $i$ if there is a $uv$ path of length $i$ on the outer face. (This means
   that if $uv$ is a chord of length $i$, then it is also a chord of length $n - i$.)
 \end{definition}
@@ -405,16 +405,16 @@ without too many low-degree vertices. For proving this, we will use a theorem
 about coloring hypergraphs. First, let us introduce the necessary definitions.
 
 \begin{definition}
-  Let $H$ be a hypergraph. The incidence graph of $H$ is a bipartite graph with one of
+  Let $H$ be a hypergraph. The \emph{incidence graph} of $H$ is a bipartite graph with one of
   its classes corresponding to the vertices of $H$, and the other class corresponding to
   the hyperedges of $H$. $ve$ is an edge in the incidence graph if and only if the
   hyperedge $e$ contains vertex $v$ in $H$.
 \end{definition}
 \begin{definition}
-  A hypergraph is called planar, if its incidence graph is planar.
+  A hypergraph is called \emph{planar}, if its incidence graph is planar.
 \end{definition}
 \begin{definition}
-  A vertex coloring of a hypergraph is proper if all its hyperedges contain vertices
+  A vertex coloring of a hypergraph is \emph{proper} if all its hyperedges contain vertices
   from both color classes.
 \end{definition}
 
