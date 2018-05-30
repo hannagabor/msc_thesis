@@ -1,1 +1,38 @@
-TODO
+Goddard and Henning formulated a conjecture about triangulated planar graphs in \cite{gh}.
+In this thesis, we are going to investigate that conjecture. It states the following.
+
+\begin{conj*}
+  If $G$ is a simple triangulated planar graph of order at least $4$, then $G$ has
+  a $2$-coloring such that every vertex of $G$ has neighbors in both color classes.
+\end{conj*}
+
+We refer to these kind of colorings as \emph{$2$-coupon colorings}. The conjecture can
+be phrased with the notion of total dominating sets as well. We call a subset $S$ of
+the vertices a \emph{total dominating set} in the graph if every vertex of $G$ has neighbors both in
+$S$ and in its complement. The \emph{total dominating number} of $G$ is the maximum number
+of disjoint total dominating sets in $G$.
+
+In Chapter \ref{ch:arbitrary}, we will show that for graphs in general, it is NP-complete
+to decide whether its total domatic number is at least $2$. We will also take a look
+at the connection between the total domatic number and the minimum degree in the graph.
+
+In Chapter \ref{ch:reformulating} and \ref{ch:spec}, we narrow our investigation to
+the case of planar triangulations. In Chapter \ref{ch:reformulating}, we formulate
+statements that are equivalent with the Goddard-Henning conjecture, or are slightly stronger.
+The conjecture is proven for several special cases. In Chapter \ref{ch:reformulating}, we show
+some of these, which have relatively easy proofs, whereas in Chapter \ref{ch:spec}, we go deeper
+and show more complex proofs. We describe the proof of Nagy \cite{outerplanar} for Hamiltonian graphs,
+and prove another special case connected to this proof. Namely, the case when the graph admits
+a $2$-factor that does not contain cycles of length $4k +2$. We also give a proof of
+the conjecture in the case when the graph does not have too many low-degree vertices.
+The proof is based on a theorem of Zvorák and Král \cite{hypergraph} about colorings of hypergraphs.
+As Barnette's \cite{barnette} following conjecture is also connected to the Goddard-Henning conjecture,
+we give a brief overview of it. Barnette's conjecture states the following.
+
+\begin{conj*}
+  Every $3$-connected $3$-regular bipartite planar graph is Hamiltonian.
+\end{conj*}
+
+Finally, in Chapter \ref{ch:alg}, we show the algorithm of Avis that generates all
+triangulations without too many repetitions. With the help of this algorithm, one
+can verify the Goddard-Henning conjecture for small graphs.
