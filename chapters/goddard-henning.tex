@@ -205,7 +205,7 @@ statements are not true, they can be useful for proving the conjecture in specia
 \end{proof}
 
 \begin{claim}
-  Statement \ref{s:no_iso} holds if and only if Statement \ref{s:bipartite} (and thus
+  If Statement \ref{s:no_iso} holds, then Statement \ref{s:bipartite} (and thus
   the Goddard-Henning conjecture) also holds.
 \end{claim}
 \begin{proof}
@@ -215,32 +215,32 @@ statements are not true, they can be useful for proving the conjecture in specia
   Take a wheel $v_1v_2\dots v_k$ defined by a vertex $v$. $v$ is not an isolated vertex in $H'$, so
   there exists a vertex $v_i$ such that $vv_i \in F'$. As $F'$ contains exactly one edge
   from each face, $v_iv_{i + 1} \in F$.
-
-  \vspace{0.4cm}
-
-  Now let $H = (V, F)$ be the subgraph required by Statement \ref{s:bipartite}.
-  Clearly, $F$ cannot contain all three edges of a face.
-  We show that there exists an edge set $F_0$, such that $(V, F \cup F_0)$ is a bipartite
-  subgraph of $G$ that contains exactly two edges of each face. Let $F_0 = \emptyset$.
-  We will add edges to $F_0$ maintaining that $(V, F \cup F_0)$ is a bipartite graph.
-
-  Suppose that there exists a face $uvw$ in $G$ with $uv, vw \notin F \cup F_0$, $wu \in F \cup F_0$.
-  If $F \cup F_0 \cup \{ uv \}$ or $F \cup F_0 \cup \{ vw \}$ is bipartite, then
-  add the appropriate edge to $F_0$. If adding either of these edges to $F_0$ creates
-  an odd cycle in $(V, F \cup F_0)$, then there exists a path $P_{uv}$ of odd
-  length from $u$ to $v$ and a path $P_{vw}$ of odd length from $v$ to $w$. Thus $P{uv}
-  + P{vw} + wu$ is a closed walk of odd length. But that is a contradiction as
-  $(V, F \cup F_0)$ is a bipartite graph.
-
-  Now suppose that there exists a face $uvw$ in $G$ such that none of its edges is
-  contained in $F \cup F_0$. If either of its edges can be added to $F_0$ maintaining a
-  bipartite graph, then put those edges in $F_0$. Otherwise there exist odd paths
-  $P_{uv}, P_{vw}, P_{wu}$ as above. Concatenating these paths gives a closed walk
-  of odd length and that yields a contradiction.
-
-  $(V, F + F_0)$ clearly contains an edge from each wheel and contains two
-  edges of each face of $G$. So $H' = (V, E - (F \cup F_0))$ contains exactly one edge
-  from each face, and has no isolated vertices.
+  %
+  % \vspace{0.4cm}
+  %
+  % Now let $H = (V, F)$ be the subgraph required by Statement \ref{s:bipartite}.
+  % Clearly, $F$ cannot contain all three edges of a face.
+  % We show that there exists an edge set $F_0$, such that $(V, F \cup F_0)$ is a bipartite
+  % subgraph of $G$ that contains exactly two edges of each face. Let $F_0 = \emptyset$.
+  % We will add edges to $F_0$ maintaining that $(V, F \cup F_0)$ is a bipartite graph.
+  %
+  % Suppose that there exists a face $uvw$ in $G$ with $uv, vw \notin F \cup F_0$, $wu \in F \cup F_0$.
+  % If $F \cup F_0 \cup \{ uv \}$ or $F \cup F_0 \cup \{ vw \}$ is bipartite, then
+  % add the appropriate edge to $F_0$. If adding either of these edges to $F_0$ creates
+  % an odd cycle in $(V, F \cup F_0)$, then there exists a path $P_{uv}$ of odd
+  % length from $u$ to $v$ and a path $P_{vw}$ of odd length from $v$ to $w$. Thus $P{uv}
+  % + P{vw} + wu$ is a closed walk of odd length. But that is a contradiction as
+  % $(V, F \cup F_0)$ is a bipartite graph.
+  %
+  % Now suppose that there exists a face $uvw$ in $G$ such that none of its edges is
+  % contained in $F \cup F_0$. If either of its edges can be added to $F_0$ maintaining a
+  % bipartite graph, then put those edges in $F_0$. Otherwise there exist odd paths
+  % $P_{uv}, P_{vw}, P_{wu}$ as above. Concatenating these paths gives a closed walk
+  % of odd length and that yields a contradiction.
+  %
+  % $(V, F + F_0)$ clearly contains an edge from each wheel and contains two
+  % edges of each face of $G$. So $H' = (V, E - (F \cup F_0))$ contains exactly one edge
+  % from each face, and has no isolated vertices.
 \end{proof}
 
 One can rephrase the Goddard-Henning conjecture in the dual graph as well.
@@ -403,7 +403,7 @@ planar graph of order at least $4$.
 
   \draw[<->, ultra thick] (conj) -- (bipartite);
   \draw[->, ultra thick] (forest) -- (bipartite);
-  \draw[<->, ultra thick] (no_iso) -- (bipartite);
+  \draw[->, ultra thick] (no_iso) -- (bipartite);
   \draw[<->, ultra thick] (dual) -- (bipartite);
   \draw[<->, ultra thick] (dual_comp) -- (dual);
   \draw[->, ultra thick] (2-factor) -- (dual);
